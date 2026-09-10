@@ -1,6 +1,6 @@
-# ⚡ Santet Online - SuperApp Occult Transmission System
+# ⚡ Santet SuperApp - Occult Transmission System
 
-Sebuah eksplorasi konsep UI/UX modern berbasis Web Application yang memadukan pola interaksi *SuperApp* kontemporer (ala Gojek, Grab, Halodoc) dengan tema transendental-satir. Proyek ini dibuat sebagai studi kasus perancangan antarmuka single-page, pengelolaan state reaktif tanpa framework berat, serta integrasi simulasi sensor perangkat (*NFC Tap*).
+Sebuah studi kasus UI/UX Web Application modern yang mengadaptasi pola interaksi *SuperApp* kontemporer (Gojek, Grab, OVO, Livin') dengan tema transendental-satir. Dirancang khusus dalam arsitektur *single-file* responsif tanpa scrolling vertikal (*single-viewport*), mendukung simulasi sensor perangkat (*NFC Tap*), verifikasi NIK mandiri, serta integrasi kanal pembayaran nasional.
 
 ---
 
@@ -11,55 +11,67 @@ Akses langsung prototipe aplikasi:
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Fitur & Pembaruan Sistem
 
-- **Single-Viewport Layout**: Antarmuka terdesain pas 1 layar (`100vh` tanpa scrolling vertikal) dengan sistem alur 4 tahap wizard.
-- **Validasi Data Target (DUKCAPIL Preset)**: Sistem verifikasi NIK 16 digit yang memetakan nama lengkap, jenis kelamin, domisili, hingga kalkulasi weton/neptu target secara otomatis.
-- **Katalog Anomali Keseharian**: Pilihan gangguan kinetik ringan yang sangat spesifik (misal: *Kelingking Nabrak Meja*, *Bersin Ngga Jadi*, *Nguap Ngga Jadi*, dll).
-- **Logika Eksekusi Fleksibel**:
-  - **Instan**: Transmisi aktif segera setelah mahar terverifikasi (jalur PayLater otomatis terkunci).
-  - **Sesuai Tanggal**: Penjadwalan tanggal anomali dengan opsi cicilan *PayLater Gaib 3x*.
-- **Multi-Kanal Pembayaran**:
-  - Simulasi Sensor **Tap E-Money NFC** (Flazz, e-Money, Brizzi) dengan audio feedback.
-  - **QRIS Dinamis** & **Virtual Account**.
-  - Proteksi sistem terhadap jalur riba kartu kredit.
-- **Dual-Theme Engine**: Transisi instan antara *Emerald Light Mode* dan *CyberOccult Dark Mode*.
-- **Tingkat Keanggotaan (PRO Tier)**: Akses instan untuk membuka tipe anomali eksklusif.
-- **E-Resi & Integrasi WhatsApp**: Terbitan tanda transmisi resmi lengkap dengan kode unik resi yang dapat langsung dibagikan.
+- **Beranda SuperApp & Loyalty Reward**: Tampilan ringkas berisi dompet *SantetPay Plus*, voucher promo diskon weton kliwon 30%, cashback transaksi perdana, dan menu jalan pintas layanan.
+- **Verifikasi NIK Mandiri (DUKCAPIL Engine)**:
+  - Validasi ketat format 16-digit angka.
+  - Efek visual pemindaian sinkronisasi server DUKCAPIL berdurasi ~1,8 detik.
+  - Pemetaan otomatis identitas target (nama lengkap, jenis kelamin, domisili, serta kalkulasi weton/neptu).
+  - Basis data target terdaftar mencakup *Nicodemus Rusdiyanto*, *Astri Purnani*, *Ferdinand Arya*, dan *Vito Satria*.
+- **Katalog 8 Sanksi Probabilitas (Termasuk 3 Tier PRO)**:
+  - *Dislokasi Kinetik Kelingking* (Hantaman presisi sudut perabot)
+  - *Malfungsi Refleks Bersin* (Gatal klimaks lenyap seketika)
+  - *Kompensasi Rahang Menguap* (Mulut terbuka lebar, kantuk terhambat)
+  - *Spasme Okular Waktu Genting* (Kedutan kelopak mata saat situasi krusial)
+  - *Amnesia Kognitif Giliran Bicara* (Lupa materi presentasi di depan umum)
+  - `[PRO]` *Fraktur Sandal di Kubangan* (Pengait putus di titik becek)
+  - `[PRO]` *Drop Baterai 1% Pas Scan Kasir* (Layar padam di antrean pembayaran)
+  - `[PRO]` *Gatal Kuping Tak Kena Titik* (Sensasi gatal yang tak kunjung terjangkau)
+- **Kanal Pembayaran Terintegrasi**:
+  - **QRIS Standar BI & ASPI**: Dilengkapi bingkai resmi nasional, identitas merchant, NMID, dan logo GPN.
+  - **10 Bank Terbesar di Indonesia**: Pilihan Virtual Account dengan format kode bayar resmi (BCA, Mandiri, BRI, BNI, BSI, CIMB Niaga, BTN, Permata, Danamon, OCBC NISP) lengkap dengan fitur salin nomor.
+  - **Simulasi Sensor Tap NFC**: Uji tempel kartu e-Money, Flazz, atau Brizzi dengan deteksi saldo instan.
+  - **PayLater Karma**: Opsi cicilan 3x khusus untuk mode transmisi terjadwal.
+- **Animasi Telemetri & Tabel Riwayat (History)**:
+  - Efek pemrosesan transmisi sinyal satelit astral selama ~2,5 detik pasca konfirmasi mahar.
+  - Pengalihan otomatis kembali ke beranda.
+  - Pencatatan transaksi real-time ke dalam tabel riwayat (kode resi, target, jenis anomali, dan status).
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Arsitektur Teknologi
 
 - **Markup & Struktur**: HTML5 (Single File Architecture)
 - **Styling**: Tailwind CSS (via CDN)
 - **Tipografi**: Google Fonts (*Plus Jakarta Sans* & *Cinzel*)
 - **Ikonografi**: Google Material Symbols Outlined
-- **Audio & Haptic**: Web Audio API (Synthesizer bawaan peramban tanpa aset eksternal)
+- **Runtime**: Browser Engine Native (Zero Dependency / No Build Step)
 
 ---
 
-## 📖 Panduan Penggunaan
+## 📖 Alur Penggunaan
 
-1. **Tahap 1: Verifikasi Target**
-   - Pilih salah satu dari 4 contoh profil preset cepat, atau masukkan NIK 16-digit secara manual.
-   - Periksa data weton dan domisili yang terisi otomatis, lalu klik **Lanjut ke Pilihan Santet**.
-2. **Tahap 2: Tentukan Jenis Anomali & Jadwal**
-   - Pilih salah satu kartu gangguan (aktifkan tombol `PRO` di kanan atas untuk opsi khusus).
-   - Tentukan mode transmisi: **Eksekusi Instan** atau **Sesuai Tanggal**.
-3. **Tahap 3: Pembayaran Mahar**
-   - Pilih metode pembayaran yang diinginkan (QRIS, VA Bank, atau Tap NFC).
-   - Jika memilih NFC, klik tombol **Tap Kartu** pada modal simulasi sensor.
-4. **Tahap 4: Resi Transmisi**
-   - Sistem akan menerbitkan kode resi telemetri resmi.
-   - Klik **Bagikan Resi** untuk mengirimkan ringkasan ke WhatsApp.
+1. **Beranda & Promo**: Periksa saldo SantetPay, klaim voucher diskon weton kliwon, atau klik **Mulai Kalibrasi Target**.
+2. **Verifikasi NIK**: Masukkan 16 digit NIK target, lalu klik **Cek NIK** untuk melihat animasi sinkronisasi basis data DUKCAPIL.
+3. **Pemilihan Sanksi & Jadwal**: Pilih salah satu dari 8 sanksi probabilitas (aktifkan tombol `BASIC / PRO TIER` di kanan atas untuk membuka fitur eksklusif). Tentukan mode instan atau sesuai tanggal.
+4. **Pembayaran Mahar**: Pilih kanal pembayaran (QRIS BI, salah satu dari 10 bank Virtual Account, atau Tap NFC).
+5. **Transmisi & Riwayat**: Amati proses peluncuran frekuensi transmisi, lalu pantau statusnya kapan saja melalui menu **Riwayat Transaksi**.
 
 ---
 
-## 📂 Menjalankan Secara Lokal
+## 📂 Menjalankan Secara Mandiri
 
-Tidak memerlukan instalasi server lokal (Node.js/PHP/Python).
+Tidak membutuhkan instalasi server (Node.js/Python/PHP):
 
-1. Clone repositori ini:
-   ```bash
-   git clone [https://github.com/nicodeanto/santet-superapp.git](https://github.com/nicodeanto/santet-superapp.git)
+```bash
+# Klon repositori
+git clone [https://github.com/nicodeanto/santet-superapp.git](https://github.com/nicodeanto/santet-superapp.git)
+
+# Masuk ke direktori
+cd santet-superapp
+
+# Buka file langsung di browser
+open index.html    # macOS
+xdg-open index.html # Linux
+start index.html   # Windows
