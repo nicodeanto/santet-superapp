@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Santet SuperApp - Transmisi Gaib Modern</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Cinzel Decorative -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Google Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mystic: ['"Cinzel"', 'serif'],
+          },
+          colors: {
+            supergreen: '#00AA13',
+            superdark: '#0e1217',
+            superpurple: '#4C35DE',
+            supercard: '#161d26'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .nfc-ripple {
+      animation: ripple 2s infinite ease-out;
+    }
+    @keyframes ripple {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .pulse-radar {
+      animation: radar 1.5s ease-in-out infinite;
+    }
+    @keyframes radar {
+      0%, 100% { opacity: 0.3; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 h-screen w-screen overflow-hidden flex items-center justify-center p-0 md:p-3">
+
+  <!-- Mobile-first App Container -->
+  <div id="appContainer" class="w-full h-full md:max-w-md md:h-[94vh] bg-white dark:bg-slate-900 md:rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-slate-200 dark:border-slate-800">
+    
+    <!-- TOP BAR NAVIGATION -->
+    <header class="h-14 px-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur z-20 shrink-0">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-full bg-supergreen text-white flex items-center justify-center shadow-md shadow-emerald-500/20">
+          <span class="material-symbols-outlined text-lg">bolt</span>
+        </div>
+        <div>
+          <span class="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+            Santet<span class="text-supergreen">SuperApp</span>
+          </span>
+          <span class="text-[9px] block text-slate-400 font-semibold leading-none">Occult System v3.4</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-1.5">
+        <!-- PRO Badge Toggle -->
+        <button id="btnTogglePro" onclick="toggleProStatus()" class="px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-600">
+          <span class="material-symbols-outlined text-xs">workspace_premium</span>
+          <span id="txtProBadge">BASIC</span>
+        </button>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button onclick="toggleTheme()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-lg" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- STEP WIZARD BAR (4 TAHAP) -->
+    <div class="bg-slate-50 dark:bg-slate-800/60 px-4 py-2 flex items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800 shrink-0">
+      <div class="flex items-center gap-1.5 font-bold">
+        <span id="stepIndicatorNumber" class="w-5 h-5 rounded-full bg-supergreen text-white text-[10px] flex items-center justify-center">1</span>
+        <span id="stepIndicatorTitle" class="text-slate-700 dark:text-slate-200">Verifikasi Target Dukcapil</span>
+      </div>
+      <span class="text-[10px] font-semibold text-slate-400" id="stepCounter">Tahap 1/4</span>
+    </div>
+
+    <!-- MAIN VIEWPORT (Strictly Fits in Screen Without Page Scroll) -->
+    <main class="flex-1 overflow-hidden relative p-3">
+
+      <!-- ================= STEP 1: TARGET NIK & VERIFIKASI DUKCAPIL ================= -->
+      <section id="step1" class="h-full flex flex-col justify-between">
+        <div class="space-y-2.5">
+          <!-- Banner DUKCAPIL -->
+          <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 rounded-xl p-2.5 flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl">verified_user</span>
+            <div>
+              <p class="text-[11px] font-bold text-emerald-900 dark:text-emerald-200 leading-tight">Terintegrasi Basis Data DUKCAPIL</p>
+              <p class="text-[10px] text-emerald-700 dark:text-emerald-400">Pemberitahuan NIK wajib untuk memastikan anomali tidak salah sasaran.</p>
+            </div>
+          </div>
+
+          <!-- 4 Preset Examples Clickable -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Pilih Contoh Target Cepat:</span>
+              <span class="text-[9px] text-supergreen font-semibold">4 Data Terverifikasi</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5">
+              <button type="button" onclick="selectPresetTarget(0)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">NICODEMUS RUSDIYANTO</div>
+                <div class="text-[9px] text-slate-400">NIK: 3171012903820001</div>
+              </button>
+
+              <button type="button" onclick="selectPresetTarget(1)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">ASTRI PURNANI</div>
+                <div class="text-[9px] text-slate-400">NIK: 3171015507850002</div>
+              </button>
+
+              <button type="button" onclick="selectPresetTarget(2)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">FERDINANDUS ARYA</div>
+                <div class="text-[9px] text-slate-400">NIK: 3275031409940003</div>
+              </button>
+
+              <button type="button" onclick="selectPresetTarget(3)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">VITO SATRIA</div>
+                <div class="text-[9px] text-slate-400">NIK: 3578042211980004</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Target Form Card -->
+          <div class="bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 space-y-2">
+            <div>
+              <label class="text-[10px] font-bold text-slate-500 uppercase">Nomor Induk Kependudukan (NIK)</label>
+              <div class="relative mt-0.5">
+                <input id="inputTargetNik" type="text" maxlength="16" value="3171012903820001" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg py-1.5 px-2.5 text-xs font-mono font-bold tracking-wider text-slate-900 dark:text-white focus:outline-none focus:border-supergreen">
+                <span class="absolute right-2 top-1.5 material-symbols-outlined text-supergreen text-base">check_circle</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Nama Lengkap</label>
+                <input id="inputTargetName" type="text" value="NICODEMUS RUSDIYANTO" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] font-bold text-slate-800 dark:text-slate-200">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Weton / Energi</label>
+                <input id="inputTargetWeton" type="text" value="Rabu Pon (Neptu 14)" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] font-semibold text-supergreen">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Jenis Kelamin</label>
+                <input id="inputTargetGender" type="text" value="Laki-Laki" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] text-slate-600 dark:text-slate-300">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-slate-500 uppercase">Status Wilayah</label>
+                <input id="inputTargetCity" type="text" value="DKI JAKARTA" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] text-slate-600 dark:text-slate-300">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="goToStep(2)" class="w-full py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25 transition-all">
+          <span>Lanjut ke Pilihan Santet Absurd</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </section>
+
+      <!-- ================= STEP 2: PILIHAN SANTET ABSURD (NO SCROLL, 6 ONLY) ================= -->
+      <section id="step2" class="h-full hidden flex-col justify-between">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-extrabold text-slate-700 dark:text-slate-200 uppercase tracking-wide">Pilih Jenis Gangguan Absurd</span>
+            <span class="text-[9px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold">100% Menjengkelkan</span>
+          </div>
+
+          <!-- 6 Grid Items Only (3 rows x 2 cols) Fits perfectly without scrolling -->
+          <div class="grid grid-cols-2 gap-2" id="curseGrid">
+            
+            <!-- 1. Kelingking Nabrak Meja -->
+            <div onclick="selectCurse(0)" id="curseCard0" class="curse-item cursor-pointer p-2 rounded-xl border-2 border-supergreen bg-emerald-50/50 dark:bg-emerald-950/20 transition-all flex flex-col justify-between h-[82px] relative">
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl">footprint</span>
+                <span class="text-[10px] font-black text-slate-900 dark:text-white">Rp25.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Kelingking Nabrak Meja</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Kinetik sudut meja mendadak.</p>
+              </div>
+            </div>
+
+            <!-- 2. Bersin Ngga Jadi -->
+            <div onclick="selectCurse(1)" id="curseCard1" class="curse-item cursor-pointer p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[82px]">
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-amber-500 text-xl">air</span>
+                <span class="text-[10px] font-black text-slate-900 dark:text-white">Rp20.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Bersin Ngga Jadi</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Gatal di hidung hilang saat ditarik napas.</p>
+              </div>
+            </div>
+
+            <!-- 3. Nguap Ngga Jadi -->
+            <div onclick="selectCurse(2)" id="curseCard2" class="curse-item cursor-pointer p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[82px]">
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-blue-500 text-xl">sentiment_dissatisfied</span>
+                <span class="text-[10px] font-black text-slate-900 dark:text-white">Rp22.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Nguap Ngga Jadi</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Mulut sudah terbuka lalu kantuk macet.</p>
+              </div>
+            </div>
+
+            <!-- 4. Mata Kedutan Terus -->
+            <div onclick="selectCurse(3)" id="curseCard3" class="curse-item cursor-pointer p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[82px]">
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-purple-500 text-xl">visibility</span>
+                <span class="text-[10px] font-black text-slate-900 dark:text-white">Rp27.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Mata Kedutan Terus</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Kedutan tiada henti pas bicara penting.</p>
+              </div>
+            </div>
+
+            <!-- 5. Lupa Pas Giliran Bicara -->
+            <div onclick="selectCurse(4)" id="curseCard4" class="curse-item cursor-pointer p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[82px]">
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-rose-500 text-xl">psychology_alt</span>
+                <span class="text-[10px] font-black text-slate-900 dark:text-white">Rp30.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Lupa Pas Giliran Bicara</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Mendadak amnesia saat ditanya giliran.</p>
+              </div>
+            </div>
+
+            <!-- 6. Sendal Jepit Putus Pas Becek [PRO] -->
+            <div onclick="selectCurse(5)" id="curseCard5" class="curse-item cursor-pointer p-2 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[82px] relative overflow-hidden">
+              <span class="absolute right-1 top-1 px-1 py-0.2 bg-amber-500 text-white rounded text-[7px] font-extrabold uppercase">PRO</span>
+              <div class="flex items-start justify-between">
+                <span class="material-symbols-outlined text-amber-600 text-xl">humidity_high</span>
+                <span class="text-[10px] font-black text-amber-600 dark:text-amber-400">Rp45.000</span>
+              </div>
+              <div>
+                <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Sendal Putus Pas Becek</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Lepas pas di tengah genangan air kotor.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Waktu Pelaksanaan Option: Instan vs Sesuai Tanggal -->
+          <div class="bg-slate-50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1.5">
+            <span class="text-[10px] font-bold text-slate-500 uppercase">Mode Jadwal Pelaksanaan</span>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" onclick="setExecMode('instant')" id="btnModeInstant" class="p-2 rounded-lg border-2 border-supergreen bg-white dark:bg-slate-900 flex items-center gap-1.5 text-left">
+                <span class="material-symbols-outlined text-supergreen text-base">bolt</span>
+                <div>
+                  <div class="text-[10px] font-bold text-slate-900 dark:text-white">Eksekusi Instan</div>
+                  <div class="text-[8px] text-slate-400 leading-none">Setelah bayar lunas</div>
+                </div>
+              </button>
+
+              <button type="button" onclick="setExecMode('scheduled')" id="btnModeScheduled" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left">
+                <span class="material-symbols-outlined text-slate-400 text-base">calendar_month</span>
+                <div>
+                  <div class="text-[10px] font-bold text-slate-700 dark:text-slate-300">Sesuai Tanggal</div>
+                  <div class="text-[8px] text-emerald-600 dark:text-emerald-400 leading-none">Bisa Cicil PayLater</div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Date Picker (Only visible if scheduled) -->
+            <div id="scheduledDateWrapper" class="hidden pt-1">
+              <input type="date" id="inputScheduledDate" value="2026-09-15" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-1.5 text-[11px] font-semibold text-slate-800 dark:text-white">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="goToStep(1)" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Kembali</button>
+          <button onclick="goToStep(3)" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25">
+            <span>Pilih Pembayaran</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3: KASIR MAHAR & NFC E-MONEY ================= -->
+      <section id="step3" class="h-full hidden flex-col justify-between">
+        <div class="space-y-2">
+          <!-- Total Ringkasan -->
+          <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-2.5 rounded-xl flex justify-between items-center shadow-md">
+            <div>
+              <span class="text-[9px] uppercase font-bold tracking-wider opacity-80 block">Mahar Yang Harus Dibayar</span>
+              <span id="txtCheckoutCurse" class="text-xs font-bold truncate block">Kelingking Nabrak Meja</span>
+              <span id="txtCheckoutMode" class="text-[9px] text-emerald-200">Mode: Eksekusi Instan</span>
+            </div>
+            <div class="text-right">
+              <span id="txtCheckoutPrice" class="text-base font-black">Rp25.000</span>
+            </div>
+          </div>
+
+          <!-- Channel Selection -->
+          <span class="text-[10px] font-bold text-slate-500 uppercase block">Pilih Metode Transaksi</span>
+          <div class="space-y-1.5">
+            
+            <!-- 1. Tap E-Money NFC Sensor -->
+            <div onclick="selectPayment('nfc')" id="payOptionNfc" class="cursor-pointer pay-option p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">contactless</span>
+                </div>
+                <div>
+                  <div class="text-[11px] font-bold text-slate-800 dark:text-white flex items-center gap-1">
+                    Tap E-Money (NFC)
+                    <span class="px-1 bg-teal-500 text-white rounded text-[7px] font-bold">SENSOR</span>
+                  </div>
+                  <div class="text-[9px] text-slate-400">Tempel Flazz, e-Money, atau Brizzi</div>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+            </div>
+
+            <!-- 2. QRIS Instan -->
+            <div onclick="selectPayment('qris')" id="payOptionQris" class="cursor-pointer pay-option p-2 rounded-xl border-2 border-supergreen bg-emerald-50/40 dark:bg-emerald-950/20 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">qr_code_2</span>
+                </div>
+                <div>
+                  <div class="text-[11px] font-bold text-slate-800 dark:text-white">QRIS Dukun Instan</div>
+                  <div class="text-[9px] text-slate-400">BCA, GoPay, OVO, ShopeePay, Dana</div>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-supergreen">check_circle</span>
+            </div>
+
+            <!-- 3. Virtual Account (VA) -->
+            <div onclick="selectPayment('va')" id="payOptionVa" class="cursor-pointer pay-option p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">account_balance</span>
+                </div>
+                <div>
+                  <div class="text-[11px] font-bold text-slate-800 dark:text-white">Virtual Account Bank</div>
+                  <div class="text-[9px] text-slate-400">BCA, Mandiri, BRI, BNI</div>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+            </div>
+
+            <!-- 4. PayLater (Cicilan Astral) -->
+            <div id="payOptionPaylater" class="p-2 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 flex items-center justify-between opacity-50 cursor-not-allowed transition-all">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">hourglass_top</span>
+                </div>
+                <div>
+                  <div class="text-[11px] font-bold text-slate-800 dark:text-white flex items-center gap-1">
+                    PayLater Gaib (Cicilan 3x)
+                    <span id="badgePaylaterStatus" class="px-1 bg-slate-300 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-[7px] font-bold">TERKUNCI</span>
+                  </div>
+                  <div id="txtPaylaterHint" class="text-[9px] text-slate-400">Hanya aktif untuk mode 'Sesuai Tanggal'</div>
+                </div>
+              </div>
+              <span id="iconPaylaterStatus" class="material-symbols-outlined text-slate-400 text-sm">lock</span>
+            </div>
+
+            <!-- 5. Credit Card (Permanently Disabled) -->
+            <div class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/50 flex items-center justify-between opacity-40 cursor-not-allowed">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-lg">credit_card_off</span>
+                </div>
+                <div>
+                  <div class="text-[11px] font-bold text-slate-600 dark:text-slate-400">Kartu Kredit Konvensional</div>
+                  <div class="text-[8px] text-rose-500 font-semibold">Tidak Tersedia (Khodam Menolak Jalur Riba)</div>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-slate-400 text-sm">block</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="goToStep(2)" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Kembali</button>
+          <button onclick="processMaharPayment()" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25">
+            <span id="btnPayText">Bayar & Eksekusi Sekarang</span>
+            <span class="material-symbols-outlined text-sm">payments</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 4: BUKTI TRANSMISI & STATUS LIVE ================= -->
+      <section id="step4" class="h-full hidden flex-col justify-between">
+        <div class="space-y-2.5">
+          
+          <!-- Transmisi Status Icon -->
+          <div class="text-center py-2">
+            <div class="w-14 h-14 mx-auto rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-supergreen flex items-center justify-center relative mb-1">
+              <span class="material-symbols-outlined text-3xl pulse-radar">radar</span>
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+            </div>
+            <h2 class="text-sm font-extrabold text-slate-900 dark:text-white" id="txtReceiptHeadline">Transmisi Gelombang Sedang Mengunci Target</h2>
+            <p class="text-[10px] text-slate-500" id="txtReceiptSub">Frekuensi anomali diarahkan ke sasaran resmi DUKCAPIL</p>
+          </div>
+
+          <!-- Official Resi Card -->
+          <div class="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs space-y-1.5 font-mono">
+            <div class="flex justify-between pb-1 border-b border-slate-200 dark:border-slate-700">
+              <span class="text-slate-400 text-[10px]">KODE RESI:</span>
+              <span class="font-bold text-supergreen text-[10px]" id="resiCode">ST-202609-8831</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400 text-[10px]">NAMA TARGET:</span>
+              <span class="font-bold text-slate-800 dark:text-white text-[10px]" id="resiTargetName">NICODEMUS RUSDIYANTO</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400 text-[10px]">NIK DUKCAPIL:</span>
+              <span class="font-bold text-slate-600 dark:text-slate-300 text-[10px]" id="resiTargetNik">3171012903820001</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400 text-[10px]">KUTUKAN:</span>
+              <span class="font-bold text-slate-800 dark:text-white text-[10px]" id="resiCurseName">Kelingking Nabrak Meja</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400 text-[10px]">STATUS:</span>
+              <span class="font-bold text-emerald-600 dark:text-emerald-400 text-[10px]" id="resiStatus">AKTIF TERLAKSANA</span>
+            </div>
+            <div class="flex justify-between pt-1 border-t border-slate-200 dark:border-slate-700">
+              <span class="text-slate-400 text-[10px]">METODE MAHAR:</span>
+              <span class="font-bold text-slate-800 dark:text-white text-[10px]" id="resiPayment">QRIS INSTAN (LUNAS)</span>
+            </div>
+          </div>
+
+          <!-- Live Telemetry Terminal Box -->
+          <div class="bg-black text-emerald-400 font-mono text-[9px] p-2.5 rounded-xl h-24 overflow-hidden flex flex-col justify-end space-y-0.5 border border-emerald-950 shadow-inner">
+            <div class="text-slate-500">[SYSTEM] Node Astra-Jakarta online...</div>
+            <div class="text-slate-400">[DUKCAPIL] Target identity verified...</div>
+            <div class="text-emerald-500">[FREQUENCY] 432Hz lock-on to target coordinates...</div>
+            <div class="text-emerald-300 font-bold">[RESULT] Anomali berhasil disinkronisasi ke weton target!</div>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="shareWhatsApp()" class="w-1/2 py-2.5 bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-sm">share</span>
+            <span>Bagikan Resi</span>
+          </button>
+          <button onclick="goToStep(1)" class="w-1/2 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-sm">restart_alt</span>
+            <span>Target Baru</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM APP NAVIGATION BAR (Always Fixed) -->
+    <nav class="h-14 border-t border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-6 flex items-center justify-between text-slate-400 shrink-0">
+      <button onclick="goToStep(1)" class="flex flex-col items-center text-supergreen">
+        <span class="material-symbols-outlined text-xl">home</span>
+        <span class="text-[9px] font-bold">Layanan</span>
+      </button>
+
+      <button onclick="goToStep(2)" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
+        <span class="material-symbols-outlined text-xl">auto_fix_high</span>
+        <span class="text-[9px] font-semibold">Santet</span>
+      </button>
+
+      <button onclick="showNfcModal()" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
+        <span class="material-symbols-outlined text-xl">contactless</span>
+        <span class="text-[9px] font-semibold">NFC E-Money</span>
+      </button>
+
+      <button onclick="goToStep(4)" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
+        <span class="material-symbols-outlined text-xl">receipt_long</span>
+        <span class="text-[9px] font-semibold">Resi Gaib</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ================= MODAL: TAP NFC SENSOR SIMULATOR ================= -->
+  <div id="nfcModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-xs rounded-2xl p-5 text-center shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4">
+      <div class="relative w-24 h-24 mx-auto flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full bg-teal-500/20 nfc-ripple"></div>
+        <div class="w-16 h-16 rounded-full bg-teal-500 text-white flex items-center justify-center shadow-lg shadow-teal-500/40">
+          <span class="material-symbols-outlined text-3xl">contactless</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-black text-slate-900 dark:text-white">Sensor NFC Terdeteksi</h3>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Tempelkan kartu Mandiri e-Money, BCA Flazz, atau BRI Brizzi di belakang perangkat Anda.</p>
+      </div>
+
+      <div class="bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl text-left border border-slate-200 dark:border-slate-700 text-xs">
+        <div class="flex justify-between font-bold">
+          <span class="text-slate-400 text-[10px]">STATUS:</span>
+          <span id="txtNfcCardStatus" class="text-teal-600 dark:text-teal-400 text-[10px]">Menunggu Kartu...</span>
+        </div>
+        <div class="flex justify-between mt-1">
+          <span class="text-slate-400 text-[10px]">SALDO TERBACA:</span>
+          <span id="txtNfcBalance" class="font-mono font-bold text-slate-800 dark:text-white text-[10px]">--</span>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <button onclick="closeNfcModal()" class="w-1/2 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold">Batal</button>
+        <button onclick="simulateNfcTapSuccess()" class="w-1/2 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 shadow-md shadow-teal-600/30">
+          <span>Tap Kartu</span>
+          <span class="material-symbols-outlined text-sm">tap_and_play</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION LOGIC JAVASCRIPT -->
+  <script>
+    // State Management
+    let isPro = false;
+    let currentStep = 1;
+    let execMode = 'instant'; // 'instant' or 'scheduled'
+    let selectedCurseIndex = 0;
+    let selectedPaymentType = 'qris';
+
+    // 4 Preset Target Examples
+    const targetPresets = [
+      {
+        nik: '3171012903820001',
+        name: 'NICODEMUS RUSDIYANTO',
+        weton: 'Rabu Pon (Neptu 14)',
+        gender: 'Laki-Laki',
+        city: 'DKI JAKARTA'
+      },
+      {
+        nik: '3171015507850002',
+        name: 'ASTRI PURNANI',
+        weton: 'Kamis Kliwon (Neptu 16)',
+        gender: 'Perempuan',
+        city: 'TANGERANG KOTA'
+      },
+      {
+        nik: '3275031409940003',
+        name: 'FERDINANDUS ARYA',
+        weton: 'Jumat Wage (Neptu 10)',
+        gender: 'Laki-Laki',
+        city: 'BEKASI UTARA'
+      },
+      {
+        nik: '3578042211980004',
+        name: 'VITO SATRIA',
+        weton: 'Sabtu Legi (Neptu 14)',
+        gender: 'Laki-Laki',
+        city: 'SURABAYA TIMUR'
+      }
+    ];
+
+    // 6 Cursemaster Items
+    const curses = [
+      { name: 'Kelingking Nabrak Meja', price: 25000, isPro: false },
+      { name: 'Bersin Ngga Jadi', price: 20000, isPro: false },
+      { name: 'Nguap Ngga Jadi', price: 22000, isPro: false },
+      { name: 'Mata Kedutan Terus', price: 27000, isPro: false },
+      { name: 'Lupa Pas Giliran Bicara', price: 30000, isPro: false },
+      { name: 'Sendal Putus Pas Becek', price: 45000, isPro: true }
+    ];
+
+    // Dark / Light Mode Switcher
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeIcon.innerText = 'dark_mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        themeIcon.innerText = 'light_mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Toggle PRO Member Status
+    function toggleProStatus() {
+      isPro = !isPro;
+      const badge = document.getElementById('txtProBadge');
+      const btn = document.getElementById('btnTogglePro');
+
+      if (isPro) {
+        badge.innerText = 'PRO USER';
+        btn.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-500 text-white border-amber-400 shadow-sm';
+      } else {
+        badge.innerText = 'BASIC';
+        btn.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-600';
+      }
+    }
+
+    // Preset Target Click Handler
+    function selectPresetTarget(idx) {
+      const t = targetPresets[idx];
+      document.getElementById('inputTargetNik').value = t.nik;
+      document.getElementById('inputTargetName').value = t.name;
+      document.getElementById('inputTargetWeton').value = t.weton;
+      document.getElementById('inputTargetGender').value = t.gender;
+      document.getElementById('inputTargetCity').value = t.city;
+
+      // Update active styling
+      document.querySelectorAll('.preset-card').forEach((card, i) => {
+        if (i === idx) {
+          card.classList.add('border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/30');
+        } else {
+          card.classList.remove('border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/30');
+        }
+      });
+    }
+
+    // Select Curse Handler
+    function selectCurse(idx) {
+      const item = curses[idx];
+      if (item.isPro && !isPro) {
+        alert('Jenis santet ini bertanda [PRO]. Klik tombol BASIC di pojok kanan atas untuk mengaktifkan status PRO USER!');
+        return;
+      }
+      selectedCurseIndex = idx;
+      
+      // Update UI cards
+      for (let i = 0; i < curses.length; i++) {
+        const card = document.getElementById(`curseCard${i}`);
+        if (i === idx) {
+          card.classList.add('border-2', 'border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/20');
+          card.classList.remove('border-slate-200', 'dark:border-slate-700');
+        } else {
+          card.classList.remove('border-2', 'border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/20');
+          card.classList.add('border', 'border-slate-200', 'dark:border-slate-700');
+        }
+      }
+      updateCheckoutDetails();
+    }
+
+    // Execution Mode: Instant vs Scheduled
+    function setExecMode(mode) {
+      execMode = mode;
+      const btnInstant = document.getElementById('btnModeInstant');
+      const btnScheduled = document.getElementById('btnModeScheduled');
+      const dateWrap = document.getElementById('scheduledDateWrapper');
+      const paylaterCard = document.getElementById('payOptionPaylater');
+      const badgePaylater = document.getElementById('badgePaylaterStatus');
+      const iconPaylater = document.getElementById('iconPaylaterStatus');
+      const hintPaylater = document.getElementById('txtPaylaterHint');
+      const btnPayText = document.getElementById('btnPayText');
+
+      if (mode === 'instant') {
+        btnInstant.className = 'p-2 rounded-lg border-2 border-supergreen bg-white dark:bg-slate-900 flex items-center gap-1.5 text-left';
+        btnScheduled.className = 'p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
+        dateWrap.classList.add('hidden');
+
+        // Disable PayLater for instant
+        paylaterCard.classList.add('opacity-50', 'cursor-not-allowed');
+        paylaterCard.classList.remove('cursor-pointer', 'border-purple-500');
+        badgePaylater.innerText = 'TERKUNCI';
+        badgePaylater.className = 'px-1 bg-slate-300 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-[7px] font-bold';
+        iconPaylater.innerText = 'lock';
+        hintPaylater.innerText = 'Hanya aktif untuk mode Sesuai Tanggal';
+        paylaterCard.onclick = null;
+        if (selectedPaymentType === 'paylater') selectPayment('qris');
+        btnPayText.innerText = 'Bayar & Eksekusi Sekarang';
+      } else {
+        btnScheduled.className = 'p-2 rounded-lg border-2 border-supergreen bg-white dark:bg-slate-900 flex items-center gap-1.5 text-left';
+        btnInstant.className = 'p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
+        dateWrap.classList.remove('hidden');
+
+        // Enable PayLater for scheduled
+        paylaterCard.classList.remove('opacity-50', 'cursor-not-allowed');
+        paylaterCard.classList.add('cursor-pointer');
+        badgePaylater.innerText = 'TERSEDIA';
+        badgePaylater.className = 'px-1 bg-purple-600 text-white rounded text-[7px] font-bold';
+        iconPaylater.innerText = 'verified';
+        hintPaylater.innerText = 'Santet dilaksanakan jika cicilan lunas';
+        paylaterCard.onclick = () => selectPayment('paylater');
+        btnPayText.innerText = 'Jadwalkan & Bayar Mahar';
+      }
+      updateCheckoutDetails();
+    }
+
+    // Select Payment Channel
+    function selectPayment(type) {
+      selectedPaymentType = type;
+      const opts = ['nfc', 'qris', 'va', 'paylater'];
+      opts.forEach(opt => {
+        const el = document.getElementById(`payOption${opt.charAt(0).toUpperCase() + opt.slice(1)}`);
+        if (!el) return;
+        if (opt === type) {
+          el.classList.add('border-2', 'border-supergreen');
+          el.classList.remove('border-slate-200', 'dark:border-slate-700');
+        } else {
+          el.classList.remove('border-2', 'border-supergreen');
+          el.classList.add('border-slate-200', 'dark:border-slate-700');
+        }
+      });
+    }
+
+    // Update Checkout Card
+    function updateCheckoutDetails() {
+      const curse = curses[selectedCurseIndex];
+      document.getElementById('txtCheckoutCurse').innerText = curse.name;
+      document.getElementById('txtCheckoutPrice').innerText = 'Rp' + curse.price.toLocaleString('id-ID');
+      document.getElementById('txtCheckoutMode').innerText = execMode === 'instant' 
+        ? 'Mode: Eksekusi Instan (Langsung Aktif)' 
+        : `Mode: Terjadwal (${document.getElementById('inputScheduledDate').value})`;
+    }
+
+    // Navigation Wizard Handler (1 Screen Full)
+    function goToStep(step) {
+      currentStep = step;
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+      document.querySelectorAll('main > section').forEach(sec => sec.classList.remove('flex'));
+
+      const target = document.getElementById(`step${step}`);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+
+      // Update Step Bar
+      document.getElementById('stepCounter').innerText = `Tahap ${step}/4`;
+      document.getElementById('stepIndicatorNumber').innerText = step;
+
+      const titles = [
+        'Verifikasi Target Dukcapil',
+        'Pilihan Santet Absurd',
+        'Kasir Mahar & NFC Sensor',
+        'Resi Transmisi Berhasil'
+      ];
+      document.getElementById('stepIndicatorTitle').innerText = titles[step - 1];
+
+      if (step === 3) updateCheckoutDetails();
+    }
+
+    // Payment Processing
+    function processMaharPayment() {
+      if (selectedPaymentType === 'nfc') {
+        showNfcModal();
+        return;
+      }
+      completeTransmission();
+    }
+
+    function completeTransmission() {
+      const targetName = document.getElementById('inputTargetName').value;
+      const targetNik = document.getElementById('inputTargetNik').value;
+      const curse = curses[selectedCurseIndex];
+
+      document.getElementById('resiTargetName').innerText = targetName;
+      document.getElementById('resiTargetNik').innerText = targetNik;
+      document.getElementById('resiCurseName').innerText = curse.name;
+      document.getElementById('resiCode').innerText = 'ST-202609-' + Math.floor(1000 + Math.random() * 9000);
+
+      if (execMode === 'instant') {
+        document.getElementById('resiStatus').innerText = 'AKTIF TERLAKSANA (INSTAN)';
+        document.getElementById('txtReceiptHeadline').innerText = 'Transmisi Anomali Sukses Terkunci!';
+        document.getElementById('txtReceiptSub').innerText = 'Target mulai mengalami ketidakberuntungan fisik.';
+      } else {
+        const sched = document.getElementById('inputScheduledDate').value;
+        document.getElementById('resiStatus').innerText = `TERJADWAL PADA ${sched}`;
+        document.getElementById('txtReceiptHeadline').innerText = 'Antrean Transmisi Terjadwal!';
+        document.getElementById('txtReceiptSub').innerText = selectedPaymentType === 'paylater' 
+          ? 'Anomali dieksekusi otomatis setelah angsuran PayLater rampung.'
+          : 'Transmisi siap dilancarkan tepat pada tanggal yang ditentukan.';
+      }
+
+      const payLabels = {
+        qris: 'QRIS DUKUN INSTAN (LUNAS)',
+        va: 'VIRTUAL ACCOUNT (LUNAS)',
+        nfc: 'E-MONEY NFC TAP SENSOR (LUNAS)',
+        paylater: 'PAYLATER GAIB (CICILAN AKTIF)'
+      };
+      document.getElementById('resiPayment').innerText = payLabels[selectedPaymentType] || 'LUNAS';
+
+      goToStep(4);
+    }
+
+    // NFC Modal Handlers
+    function showNfcModal() {
+      document.getElementById('nfcModal').classList.remove('hidden');
+      document.getElementById('txtNfcCardStatus').innerText = 'Mencari Frekuensi Kartu...';
+      document.getElementById('txtNfcBalance').innerText = '--';
+    }
+
+    function closeNfcModal() {
+      document.getElementById('nfcModal').classList.add('hidden');
+    }
+
+    function simulateNfcTapSuccess() {
+      const status = document.getElementById('txtNfcCardStatus');
+      const bal = document.getElementById('txtNfcBalance');
+      status.innerText = 'MANDIRI E-MONEY TERDETEKSI!';
+      bal.innerText = 'Rp128.500';
+
+      setTimeout(() => {
+        closeNfcModal();
+        selectedPaymentType = 'nfc';
+        completeTransmission();
+      }, 700);
+    }
+
+    // Share to WhatsApp
+    function shareWhatsApp() {
+      const name = document.getElementById('resiTargetName').innerText;
+      const curse = document.getElementById('resiCurseName').innerText;
+      const code = document.getElementById('resiCode').innerText;
+      const text = encodeURIComponent(`*SANTET SUPERAPP - BUKTI TRANSMISI GAIB*\nKode Resi: ${code}\nTarget: ${name}\nJenis Santet: ${curse}\nStatus: Berhasil dikirimkan secara resmi.`);
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+    }
+
+    // Initial setup on load
+    window.addEventListener('DOMContentLoaded', () => {
+      selectPresetTarget(0);
+      selectCurse(0);
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('themeIcon').innerText = 'light_mode';
+      }
+    });
+  </script>
+</body>
+</html>
