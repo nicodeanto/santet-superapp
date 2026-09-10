@@ -66,7 +66,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased font-sans transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 h-screen w-screen overflow-hidden flex items-center justify-center p-0 md:p-3">
 
-  <!-- Mobile-first App Container -->
+  <!-- Mobile-first App Wrapper -->
   <div id="appContainer" class="w-full h-full md:max-w-md md:h-[94vh] bg-white dark:bg-slate-900 md:rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-slate-200 dark:border-slate-800">
     
     <!-- TOP BAR NAVIGATION -->
@@ -97,55 +97,135 @@
       </div>
     </header>
 
-    <!-- STEP WIZARD BAR (4 TAHAP) -->
-    <div class="bg-slate-50 dark:bg-slate-800/60 px-4 py-2 flex items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800 shrink-0">
+    <!-- STEP WIZARD BAR (Only shown when ordering) -->
+    <div id="wizardHeader" class="hidden bg-slate-50 dark:bg-slate-800/60 px-4 py-2 items-center justify-between text-xs border-b border-slate-100 dark:border-slate-800 shrink-0">
       <div class="flex items-center gap-1.5 font-bold">
         <span id="stepIndicatorNumber" class="w-5 h-5 rounded-full bg-supergreen text-white text-[10px] flex items-center justify-center">1</span>
         <span id="stepIndicatorTitle" class="text-slate-700 dark:text-slate-200">Verifikasi Target Dukcapil</span>
       </div>
-      <span class="text-[10px] font-semibold text-slate-400" id="stepCounter">Tahap 1/4</span>
+      <span class="text-[10px] font-semibold text-slate-400" id="stepCounter">Tahap 1/3</span>
     </div>
 
-    <!-- MAIN VIEWPORT (Strictly Fits in Screen Without Page Scroll) -->
+    <!-- MAIN VIEWPORT (Strictly Fits Screen Without Scrolling) -->
     <main class="flex-1 overflow-hidden relative p-3">
 
-      <!-- ================= STEP 1: TARGET NIK & VERIFIKASI DUKCAPIL ================= -->
-      <section id="step1" class="h-full flex flex-col justify-between">
-        <div class="space-y-2.5">
-          <!-- Banner DUKCAPIL -->
-          <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 rounded-xl p-2.5 flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-2xl">verified_user</span>
-            <div>
-              <p class="text-[11px] font-bold text-emerald-900 dark:text-emerald-200 leading-tight">Terintegrasi Basis Data DUKCAPIL</p>
-              <p class="text-[10px] text-emerald-700 dark:text-emerald-400">Pemberitahuan NIK wajib untuk memastikan anomali tidak salah sasaran.</p>
+      <!-- ================= SCREEN 0: BERANDA UTAMA (HOME) ================= -->
+      <section id="viewHome" class="h-full flex flex-col justify-between">
+        <div class="space-y-3">
+          
+          <!-- Wallet Card SantetPay (Ala GoPay / OVO) -->
+          <div class="bg-gradient-to-r from-emerald-600 to-teal-800 text-white rounded-2xl p-3.5 shadow-lg relative overflow-hidden">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <span class="text-[9px] uppercase tracking-wider font-semibold opacity-80 block">Dompet Mahar Astral</span>
+                <span class="text-lg font-black tracking-tight flex items-center gap-1">
+                  Rp350.000 <span class="material-symbols-outlined text-xs opacity-75">verified</span>
+                </span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur text-[9px] font-bold">SantetPay</span>
+            </div>
+            
+            <div class="grid grid-cols-4 gap-1 pt-2 border-t border-white/15 text-center">
+              <button onclick="startOrderFlow()" class="flex flex-col items-center py-1 rounded-lg hover:bg-white/10 transition-all">
+                <span class="material-symbols-outlined text-lg">send</span>
+                <span class="text-[9px] font-bold mt-0.5">Kirim</span>
+              </button>
+              <button onclick="showNfcModal()" class="flex flex-col items-center py-1 rounded-lg hover:bg-white/10 transition-all">
+                <span class="material-symbols-outlined text-lg">contactless</span>
+                <span class="text-[9px] font-bold mt-0.5">Isi NFC</span>
+              </button>
+              <button onclick="goToStep(2)" class="flex flex-col items-center py-1 rounded-lg hover:bg-white/10 transition-all">
+                <span class="material-symbols-outlined text-lg">calendar_month</span>
+                <span class="text-[9px] font-bold mt-0.5">Jadwal</span>
+              </button>
+              <button onclick="toggleProStatus()" class="flex flex-col items-center py-1 rounded-lg hover:bg-white/10 transition-all">
+                <span class="material-symbols-outlined text-lg text-amber-300">workspace_premium</span>
+                <span class="text-[9px] font-bold mt-0.5">Tier PRO</span>
+              </button>
             </div>
           </div>
 
-          <!-- 4 Preset Examples Clickable -->
+          <!-- Service Grid Menu Icons -->
+          <div>
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Layanan Cepat</span>
+            <div class="grid grid-cols-4 gap-2 text-center">
+              <button onclick="startOrderFlow()" class="flex flex-col items-center group">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-supergreen flex items-center justify-center border border-emerald-100 dark:border-emerald-800/60 shadow-sm group-hover:scale-105 transition-all">
+                  <span class="material-symbols-outlined text-2xl">auto_fix_high</span>
+                </div>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Santet Kilat</span>
+              </button>
+
+              <button onclick="startOrderFlow()" class="flex flex-col items-center group">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 flex items-center justify-center border border-blue-100 dark:border-blue-800/60 shadow-sm group-hover:scale-105 transition-all">
+                  <span class="material-symbols-outlined text-2xl">fingerprint</span>
+                </div>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Cek NIK</span>
+              </button>
+
+              <button onclick="showNfcModal()" class="flex flex-col items-center group">
+                <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 flex items-center justify-center border border-teal-100 dark:border-teal-800/60 shadow-sm group-hover:scale-105 transition-all">
+                  <span class="material-symbols-outlined text-2xl">contactless</span>
+                </div>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Tap NFC</span>
+              </button>
+
+              <button onclick="goToStep(4)" class="flex flex-col items-center group">
+                <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 flex items-center justify-center border border-purple-100 dark:border-purple-800/60 shadow-sm group-hover:scale-105 transition-all">
+                  <span class="material-symbols-outlined text-2xl">receipt_long</span>
+                </div>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Cek Resi</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature Promo Card -->
+          <div class="bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl p-3 flex items-center justify-between">
+            <div class="space-y-0.5">
+              <span class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-[8px] font-black uppercase">BARU</span>
+              <p class="text-xs font-black text-slate-800 dark:text-white">Gangguan Ringan Bergaransi</p>
+              <p class="text-[10px] text-slate-500 dark:text-slate-400">Verifikasi NIK DUKCAPIL agar tidak salah target sasaran.</p>
+            </div>
+            <span class="material-symbols-outlined text-3xl text-supergreen">verified</span>
+          </div>
+
+        </div>
+
+        <button onclick="startOrderFlow()" class="w-full py-3 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25 transition-all">
+          <span class="material-symbols-outlined text-base">near_me</span>
+          <span>Mulai Kirim Gangguan Absurd</span>
+        </button>
+      </section>
+
+      <!-- ================= STEP 1: INPUT TARGET & CONTOH 4 NIK ================= -->
+      <section id="step1" class="h-full hidden flex-col justify-between">
+        <div class="space-y-2">
+          
+          <!-- 4 Preset Examples (Only visible inside Target Input stage) -->
           <div>
             <div class="flex justify-between items-center mb-1">
-              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Pilih Contoh Target Cepat:</span>
+              <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Pilih Contoh Target Cepat:</span>
               <span class="text-[9px] text-supergreen font-semibold">4 Data Terverifikasi</span>
             </div>
             <div class="grid grid-cols-2 gap-1.5">
-              <button type="button" onclick="selectPresetTarget(0)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
-                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">NICODEMUS RUSDIYANTO</div>
-                <div class="text-[9px] text-slate-400">NIK: 3171012903820001</div>
+              <button type="button" onclick="selectPresetTarget(0)" class="preset-card text-left p-1.5 rounded-xl border border-supergreen bg-emerald-50/50 dark:bg-emerald-950/30 transition-all">
+                <div class="text-[10px] font-bold text-slate-800 dark:text-white truncate">NICODEMUS RUSDIYANTO</div>
+                <div class="text-[8px] text-slate-400 font-mono">3171012903820001</div>
               </button>
 
-              <button type="button" onclick="selectPresetTarget(1)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
-                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">ASTRI PURNANI</div>
-                <div class="text-[9px] text-slate-400">NIK: 3171015507850002</div>
+              <button type="button" onclick="selectPresetTarget(1)" class="preset-card text-left p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[10px] font-bold text-slate-800 dark:text-white truncate">ASTRI PURNANI</div>
+                <div class="text-[8px] text-slate-400 font-mono">3171015507850002</div>
               </button>
 
-              <button type="button" onclick="selectPresetTarget(2)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
-                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">FERDINANDUS ARYA</div>
-                <div class="text-[9px] text-slate-400">NIK: 3275031409940003</div>
+              <button type="button" onclick="selectPresetTarget(2)" class="preset-card text-left p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[10px] font-bold text-slate-800 dark:text-white truncate">FERDINANDUS ARYA</div>
+                <div class="text-[8px] text-slate-400 font-mono">3275031409940003</div>
               </button>
 
-              <button type="button" onclick="selectPresetTarget(3)" class="preset-card text-left p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-supergreen dark:hover:border-supergreen bg-slate-50 dark:bg-slate-800/50 transition-all">
-                <div class="text-[11px] font-bold text-slate-800 dark:text-white truncate">VITO SATRIA</div>
-                <div class="text-[9px] text-slate-400">NIK: 3578042211980004</div>
+              <button type="button" onclick="selectPresetTarget(3)" class="preset-card text-left p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 transition-all">
+                <div class="text-[10px] font-bold text-slate-800 dark:text-white truncate">VITO SATRIA</div>
+                <div class="text-[8px] text-slate-400 font-mono">3578042211980004</div>
               </button>
             </div>
           </div>
@@ -156,7 +236,7 @@
               <label class="text-[10px] font-bold text-slate-500 uppercase">Nomor Induk Kependudukan (NIK)</label>
               <div class="relative mt-0.5">
                 <input id="inputTargetNik" type="text" maxlength="16" value="3171012903820001" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg py-1.5 px-2.5 text-xs font-mono font-bold tracking-wider text-slate-900 dark:text-white focus:outline-none focus:border-supergreen">
-                <span class="absolute right-2 top-1.5 material-symbols-outlined text-supergreen text-base">check_circle</span>
+                <span class="absolute right-2 top-1.5 material-symbols-outlined text-supergreen text-base">verified</span>
               </div>
             </div>
 
@@ -184,10 +264,13 @@
           </div>
         </div>
 
-        <button onclick="goToStep(2)" class="w-full py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25 transition-all">
-          <span>Lanjut ke Pilihan Santet Absurd</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
+        <div class="flex gap-2">
+          <button onclick="goToHome()" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Batal</button>
+          <button onclick="goToStep(2)" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25 transition-all">
+            <span>Pilih Santet Absurd</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
       </section>
 
       <!-- ================= STEP 2: PILIHAN SANTET ABSURD (NO SCROLL, 6 ONLY) ================= -->
@@ -198,7 +281,7 @@
             <span class="text-[9px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold">100% Menjengkelkan</span>
           </div>
 
-          <!-- 6 Grid Items Only (3 rows x 2 cols) Fits perfectly without scrolling -->
+          <!-- 6 Grid Items Only (3 rows x 2 cols) -->
           <div class="grid grid-cols-2 gap-2" id="curseGrid">
             
             <!-- 1. Kelingking Nabrak Meja -->
@@ -221,7 +304,7 @@
               </div>
               <div>
                 <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Bersin Ngga Jadi</p>
-                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Gatal di hidung hilang saat ditarik napas.</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Gatal di hidung hilang pas tarik napas.</p>
               </div>
             </div>
 
@@ -233,7 +316,7 @@
               </div>
               <div>
                 <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Nguap Ngga Jadi</p>
-                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Mulut sudah terbuka lalu kantuk macet.</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Mulut terbuka lalu kantuk macet.</p>
               </div>
             </div>
 
@@ -245,7 +328,7 @@
               </div>
               <div>
                 <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Mata Kedutan Terus</p>
-                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Kedutan tiada henti pas bicara penting.</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Kedutan tanpa henti pas bicara penting.</p>
               </div>
             </div>
 
@@ -270,7 +353,7 @@
               </div>
               <div>
                 <p class="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Sendal Putus Pas Becek</p>
-                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Lepas pas di tengah genangan air kotor.</p>
+                <p class="text-[8px] text-slate-500 dark:text-slate-400 line-clamp-1">Lepas tepat di tengah kubangan air.</p>
               </div>
             </div>
 
@@ -420,7 +503,7 @@
         </div>
       </section>
 
-      <!-- ================= STEP 4: BUKTI TRANSMISI & STATUS LIVE ================= -->
+      <!-- ================= STEP 4: BUKTI TRANSMISI & RESI GAIB ================= -->
       <section id="step4" class="h-full hidden flex-col justify-between">
         <div class="space-y-2.5">
           
@@ -476,9 +559,9 @@
             <span class="material-symbols-outlined text-sm">share</span>
             <span>Bagikan Resi</span>
           </button>
-          <button onclick="goToStep(1)" class="w-1/2 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1">
-            <span class="material-symbols-outlined text-sm">restart_alt</span>
-            <span>Target Baru</span>
+          <button onclick="goToHome()" class="w-1/2 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-sm">home</span>
+            <span>Ke Beranda</span>
           </button>
         </div>
       </section>
@@ -487,19 +570,19 @@
 
     <!-- BOTTOM APP NAVIGATION BAR (Always Fixed) -->
     <nav class="h-14 border-t border-slate-100 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-6 flex items-center justify-between text-slate-400 shrink-0">
-      <button onclick="goToStep(1)" class="flex flex-col items-center text-supergreen">
+      <button onclick="goToHome()" id="navHome" class="flex flex-col items-center text-supergreen">
         <span class="material-symbols-outlined text-xl">home</span>
-        <span class="text-[9px] font-bold">Layanan</span>
+        <span class="text-[9px] font-bold">Beranda</span>
       </button>
 
-      <button onclick="goToStep(2)" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
+      <button onclick="startOrderFlow()" id="navSantet" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
         <span class="material-symbols-outlined text-xl">auto_fix_high</span>
         <span class="text-[9px] font-semibold">Santet</span>
       </button>
 
       <button onclick="showNfcModal()" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
         <span class="material-symbols-outlined text-xl">contactless</span>
-        <span class="text-[9px] font-semibold">NFC E-Money</span>
+        <span class="text-[9px] font-semibold">NFC Sensor</span>
       </button>
 
       <button onclick="goToStep(4)" class="flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200">
@@ -522,7 +605,7 @@
 
       <div>
         <h3 class="text-sm font-black text-slate-900 dark:text-white">Sensor NFC Terdeteksi</h3>
-        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Tempelkan kartu Mandiri e-Money, BCA Flazz, atau BRI Brizzi di belakang perangkat Anda.</p>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Tempelkan kartu Mandiri e-Money, BCA Flazz, atau BRI Brizzi di belakang ponsel Anda.</p>
       </div>
 
       <div class="bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl text-left border border-slate-200 dark:border-slate-700 text-xs">
@@ -550,12 +633,11 @@
   <script>
     // State Management
     let isPro = false;
-    let currentStep = 1;
-    let execMode = 'instant'; // 'instant' or 'scheduled'
+    let execMode = 'instant';
     let selectedCurseIndex = 0;
     let selectedPaymentType = 'qris';
 
-    // 4 Preset Target Examples
+    // 4 Preset Target Examples (Only displayed during Target Input)
     const targetPresets = [
       {
         nik: '3171012903820001',
@@ -597,7 +679,7 @@
       { name: 'Sendal Putus Pas Becek', price: 45000, isPro: true }
     ];
 
-    // Dark / Light Mode Switcher
+    // Theme Switcher
     function toggleTheme() {
       const html = document.documentElement;
       const themeIcon = document.getElementById('themeIcon');
@@ -636,12 +718,14 @@
       document.getElementById('inputTargetGender').value = t.gender;
       document.getElementById('inputTargetCity').value = t.city;
 
-      // Update active styling
+      // Update card active styling
       document.querySelectorAll('.preset-card').forEach((card, i) => {
         if (i === idx) {
           card.classList.add('border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/30');
+          card.classList.remove('border-slate-200', 'dark:border-slate-700');
         } else {
           card.classList.remove('border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/30');
+          card.classList.add('border-slate-200', 'dark:border-slate-700');
         }
       });
     }
@@ -655,7 +739,6 @@
       }
       selectedCurseIndex = idx;
       
-      // Update UI cards
       for (let i = 0; i < curses.length; i++) {
         const card = document.getElementById(`curseCard${i}`);
         if (i === idx) {
@@ -669,7 +752,7 @@
       updateCheckoutDetails();
     }
 
-    // Execution Mode: Instant vs Scheduled
+    // Mode: Instant vs Scheduled
     function setExecMode(mode) {
       execMode = mode;
       const btnInstant = document.getElementById('btnModeInstant');
@@ -686,7 +769,7 @@
         btnScheduled.className = 'p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
         dateWrap.classList.add('hidden');
 
-        // Disable PayLater for instant
+        // PayLater locked for instant
         paylaterCard.classList.add('opacity-50', 'cursor-not-allowed');
         paylaterCard.classList.remove('cursor-pointer', 'border-purple-500');
         badgePaylater.innerText = 'TERKUNCI';
@@ -701,7 +784,7 @@
         btnInstant.className = 'p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
         dateWrap.classList.remove('hidden');
 
-        // Enable PayLater for scheduled
+        // PayLater active for scheduled
         paylaterCard.classList.remove('opacity-50', 'cursor-not-allowed');
         paylaterCard.classList.add('cursor-pointer');
         badgePaylater.innerText = 'TERSEDIA';
@@ -741,32 +824,67 @@
         : `Mode: Terjadwal (${document.getElementById('inputScheduledDate').value})`;
     }
 
-    // Navigation Wizard Handler (1 Screen Full)
+    // Navigation: Return to Home
+    function goToHome() {
+      document.querySelectorAll('main > section').forEach(sec => {
+        sec.classList.add('hidden');
+        sec.classList.remove('flex');
+      });
+      const home = document.getElementById('viewHome');
+      home.classList.remove('hidden');
+      home.classList.add('flex');
+
+      document.getElementById('wizardHeader').classList.add('hidden');
+      document.getElementById('wizardHeader').classList.remove('flex');
+
+      // Update Nav
+      document.getElementById('navHome').classList.add('text-supergreen');
+      document.getElementById('navSantet').classList.remove('text-supergreen');
+    }
+
+    // Start Order Wizard
+    function startOrderFlow() {
+      goToStep(1);
+    }
+
+    // Wizard Navigation
     function goToStep(step) {
-      currentStep = step;
-      document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-      document.querySelectorAll('main > section').forEach(sec => sec.classList.remove('flex'));
+      document.querySelectorAll('main > section').forEach(sec => {
+        sec.classList.add('hidden');
+        sec.classList.remove('flex');
+      });
 
       const target = document.getElementById(`step${step}`);
       target.classList.remove('hidden');
       target.classList.add('flex');
 
-      // Update Step Bar
-      document.getElementById('stepCounter').innerText = `Tahap ${step}/4`;
-      document.getElementById('stepIndicatorNumber').innerText = step;
+      // Show wizard bar on steps 1, 2, 3
+      const wizardBar = document.getElementById('wizardHeader');
+      if (step <= 3) {
+        wizardBar.classList.remove('hidden');
+        wizardBar.classList.add('flex');
+        document.getElementById('stepCounter').innerText = `Tahap ${step}/3`;
+        document.getElementById('stepIndicatorNumber').innerText = step;
+        
+        const titles = [
+          'Verifikasi Target Dukcapil',
+          'Pilihan Santet Absurd',
+          'Kasir Mahar & NFC Sensor'
+        ];
+        document.getElementById('stepIndicatorTitle').innerText = titles[step - 1];
+      } else {
+        wizardBar.classList.add('hidden');
+        wizardBar.classList.remove('flex');
+      }
 
-      const titles = [
-        'Verifikasi Target Dukcapil',
-        'Pilihan Santet Absurd',
-        'Kasir Mahar & NFC Sensor',
-        'Resi Transmisi Berhasil'
-      ];
-      document.getElementById('stepIndicatorTitle').innerText = titles[step - 1];
+      // Bottom Nav active state
+      document.getElementById('navHome').classList.remove('text-supergreen');
+      document.getElementById('navSantet').classList.add('text-supergreen');
 
       if (step === 3) updateCheckoutDetails();
     }
 
-    // Payment Processing
+    // Payment Settlement
     function processMaharPayment() {
       if (selectedPaymentType === 'nfc') {
         showNfcModal();
@@ -809,7 +927,7 @@
       goToStep(4);
     }
 
-    // NFC Modal Handlers
+    // NFC Modal
     function showNfcModal() {
       document.getElementById('nfcModal').classList.remove('hidden');
       document.getElementById('txtNfcCardStatus').innerText = 'Mencari Frekuensi Kartu...';
@@ -833,7 +951,7 @@
       }, 700);
     }
 
-    // Share to WhatsApp
+    // WhatsApp Share
     function shareWhatsApp() {
       const name = document.getElementById('resiTargetName').innerText;
       const curse = document.getElementById('resiCurseName').innerText;
@@ -842,10 +960,11 @@
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     }
 
-    // Initial setup on load
+    // Initialization
     window.addEventListener('DOMContentLoaded', () => {
       selectPresetTarget(0);
       selectCurse(0);
+      goToHome();
       if (localStorage.getItem('theme') === 'dark') {
         document.documentElement.classList.add('dark');
         document.getElementById('themeIcon').innerText = 'light_mode';
