@@ -38,11 +38,11 @@
       -webkit-tap-highlight-color: transparent;
     }
     .custom-scrollbar::-webkit-scrollbar {
-      display: none;
+      width: 3px;
     }
-    .custom-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
     }
     .nfc-ripple {
       animation: ripple 2s infinite ease-out;
@@ -71,7 +71,6 @@
       100% { top: 100%; opacity: 0; }
     }
   </style>
-  <script data-goatcounter="https://santetly.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased font-sans transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 h-screen w-screen overflow-hidden flex items-center justify-center p-0 md:p-3">
 
@@ -115,7 +114,7 @@
     <!-- MAIN VIEWPORT -->
     <main class="flex-1 overflow-hidden relative p-3">
 
-      <!-- ================= SCREEN 0: BERANDA UTAMA ================= -->
+      <!-- ================= SCREEN 0: BERANDA ================= -->
       <section id="viewHome" class="h-full flex flex-col justify-between">
         <div class="space-y-2.5">
           
@@ -182,7 +181,7 @@
             </div>
           </div>
 
-          <!-- PROMO & LOYALTY CAROUSEL BANNER -->
+          <!-- PROMO BANNER -->
           <div class="space-y-1.5">
             <div class="flex justify-between items-center">
               <span class="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Promo Khusus Santetly</span>
@@ -234,7 +233,7 @@
         </button>
       </section>
 
-      <!-- ================= STEP 1: INPUT NIK DENGAN CONTOH DROPDOWN & DUMMY AUTO-GEN ================= -->
+      <!-- ================= STEP 1: VERIFIKASI NIK ================= -->
       <section id="step1" class="h-full hidden flex-col justify-between">
         <div class="space-y-2">
           
@@ -319,7 +318,7 @@
         </div>
       </section>
 
-      <!-- ================= STEP 2: JENIS SANTET (MULTI-SELECT) ================= -->
+      <!-- ================= STEP 2: JENIS SANTET ================= -->
       <section id="step2" class="h-full hidden flex-col justify-between">
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
@@ -473,37 +472,54 @@
         <div class="flex gap-2">
           <button onclick="goToStep(1)" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Kembali</button>
           <button onclick="goToStep(3)" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25">
-            <span id="btnContinueMahar">Pilih Pembayaran (Rp25.000)</span>
+            <span id="btnContinueMahar">Pilih Pembayaran</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
         </div>
       </section>
 
-      <!-- ================= STEP 3: KASIR MAHAR SANTETPAY (DENGAN LIST LENGKAP & PILIHAN PROMO) ================= -->
+      <!-- ================= STEP 3: KASIR MAHAR (DENGAN LIST LENGKAP & KALKULASI PROMO TRANSPARAN) ================= -->
       <section id="step3" class="h-full hidden flex-col justify-between">
         <div class="space-y-1.5">
           
-          <!-- Ringkasan Mahar Card dengan List Rinci -->
-          <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-2 rounded-xl shadow-md space-y-1.5">
-            <div class="flex justify-between items-center pb-1 border-b border-white/20">
+          <!-- Ringkasan Mahar Card Transparan -->
+          <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-2.5 rounded-2xl shadow-md space-y-1.5">
+            
+            <div class="flex justify-between items-center pb-1 border-b border-white/15">
               <div>
                 <span class="text-[7.5px] uppercase font-bold tracking-wider opacity-80 block">Mahar Terverifikasi (SantetPay)</span>
-                <span id="txtCheckoutMode" class="text-[8px] text-emerald-200">Mode: Eksekusi Instan</span>
+                <span id="txtCheckoutMode" class="text-[8px] text-emerald-200 font-medium">Mode: Eksekusi Instan</span>
               </div>
               <div class="text-right">
-                <span id="txtCheckoutPrice" class="text-base font-black leading-none">Rp25.000</span>
+                <span class="text-[7.5px] uppercase opacity-75 block">Total Bersih</span>
+                <span id="txtCheckoutPrice" class="text-base font-black text-amber-300 leading-none">Rp25.000</span>
               </div>
             </div>
 
-            <!-- List Semua Santet Yang Dipilih -->
-            <div class="bg-black/20 rounded-lg p-1.5 space-y-1 max-h-20 overflow-y-auto custom-scrollbar">
+            <!-- List Semua Santet Yang Dipilih (Scrollable Container Hingga 8 Item) -->
+            <div class="bg-black/25 rounded-xl p-2 space-y-1">
               <div class="text-[7.5px] font-bold uppercase tracking-wider text-emerald-200 flex justify-between">
-                <span>Daftar Santet Terpilih:</span>
-                <span id="txtCountSelectedList">1 Item</span>
+                <span>Rincian Item Santet Terpilih:</span>
+                <span id="txtCountSelectedList" class="font-mono bg-white/20 px-1 py-0.2 rounded text-[7px]">1 Item</span>
               </div>
-              <div id="checkoutSelectedItemsList" class="space-y-0.5 text-[8.5px]">
-                <!-- Rendered dynamically -->
+              
+              <!-- Container List Santet Terpilih (Kapasitas muat semua item) -->
+              <div id="checkoutSelectedItemsList" class="space-y-0.5 text-[8.5px] max-h-24 overflow-y-auto custom-scrollbar pr-0.5">
+                <!-- Diisi dinamis via JS -->
               </div>
+
+              <!-- Kalkulasi Rinci: Subtotal, Potongan Diskon, Total Akhir -->
+              <div class="pt-1.5 border-t border-white/15 space-y-0.5 text-[8px] font-mono">
+                <div class="flex justify-between text-white/80">
+                  <span>Subtotal Mahar Kotor:</span>
+                  <span id="txtCalcSubtotal" class="font-bold">Rp0</span>
+                </div>
+                <div id="rowCalcDiscount" class="flex justify-between text-amber-300 hidden">
+                  <span id="txtCalcDiscountLabel">Potongan Promo:</span>
+                  <span id="txtCalcDiscountValue" class="font-bold">-Rp0</span>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -514,7 +530,7 @@
                 <span class="material-symbols-outlined text-[11px] text-amber-500">local_offer</span>
                 <span>Voucher Diskon & Cashback</span>
               </label>
-              <span id="txtPromoStatusBadge" class="text-[7px] px-1 py-0.2 rounded font-bold bg-slate-100 dark:bg-slate-700 text-slate-500">TIDAK PAKAI</span>
+              <span id="txtPromoStatusBadge" class="text-[7px] px-1.5 py-0.2 rounded font-bold bg-slate-100 dark:bg-slate-700 text-slate-500">TIDAK PAKAI</span>
             </div>
 
             <select id="selectVoucherPromo" onchange="applySelectedPromo()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg py-1 px-1.5 text-[9.5px] font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:border-supergreen">
@@ -541,21 +557,21 @@
           </div>
 
           <!-- TAB 1: QRIS RESMI STANDAR BI (ASPI) -->
-          <div id="panelPayQris" class="bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-center shadow-sm">
-            <div class="border-b border-slate-100 dark:border-slate-700 pb-1 mb-1.5 flex items-center justify-between">
+          <div id="panelPayQris" class="bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl p-1.5 text-center shadow-sm">
+            <div class="border-b border-slate-100 dark:border-slate-700 pb-1 mb-1 flex items-center justify-between">
               <div class="flex items-center gap-1">
-                <span class="px-1 py-0.2 bg-red-600 text-white font-black text-[8px] tracking-wider rounded">QRIS</span>
+                <span class="px-1 py-0.2 bg-red-600 text-white font-black text-[7.5px] tracking-wider rounded">QRIS</span>
                 <span class="text-[7.5px] font-bold text-slate-600 dark:text-slate-300">Standar Pembayaran BI</span>
               </div>
               <span class="text-[7.5px] font-mono font-bold text-slate-400">GPN / ASPI</span>
             </div>
 
             <div class="text-left mb-1">
-              <div class="text-[9px] font-black text-slate-800 dark:text-white uppercase tracking-tight">SANTETLY OCCULT SERVICES INDONESIA</div>
+              <div class="text-[8.5px] font-black text-slate-800 dark:text-white uppercase tracking-tight">SANTETLY OCCULT SERVICES INDONESIA</div>
               <div class="text-[7px] text-slate-400 font-mono">NMID: ID102409883199801 | A01</div>
             </div>
 
-            <div class="relative w-28 h-28 mx-auto bg-white p-1.5 rounded-lg border border-slate-300 shadow-inner flex items-center justify-center">
+            <div class="relative w-24 h-24 mx-auto bg-white p-1 rounded-lg border border-slate-300 shadow-inner flex items-center justify-center">
               <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor">
                 <rect x="5" y="5" width="26" height="26" fill="black" rx="2" />
                 <rect x="9" y="9" width="18" height="18" fill="white" />
@@ -599,7 +615,7 @@
                 <circle cx="50" cy="50" r="4" fill="white" />
               </svg>
             </div>
-            <p class="text-[7.5px] text-slate-400 mt-1 font-semibold">BCA, Livin Mandiri, BRImo, GoPay, OVO, ShopeePay, DANA</p>
+            <p class="text-[7px] text-slate-400 mt-1 font-semibold">BCA, Livin Mandiri, BRImo, GoPay, OVO, ShopeePay, DANA</p>
           </div>
 
           <!-- TAB 2: VIRTUAL ACCOUNT -->
@@ -633,13 +649,13 @@
           </div>
 
           <!-- TAB 3: NFC TAP SENSOR -->
-          <div id="panelPayNfc" class="hidden bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 text-center space-y-1.5">
-            <div class="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto">
-              <span class="material-symbols-outlined text-xl">contactless</span>
+          <div id="panelPayNfc" class="hidden bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-center space-y-1">
+            <div class="w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto">
+              <span class="material-symbols-outlined text-lg">contactless</span>
             </div>
             <div>
-              <p class="text-[10px] font-bold text-slate-900 dark:text-white">Sensor Tap E-Money Siaga</p>
-              <p class="text-[8px] text-slate-500 dark:text-slate-400">Tempelkan kartu Mandiri e-Money, BCA Flazz, atau Brizzi di belakang ponsel.</p>
+              <p class="text-[9.5px] font-bold text-slate-900 dark:text-white">Sensor Tap E-Money Siaga</p>
+              <p class="text-[7.5px] text-slate-500 dark:text-slate-400">Tempelkan kartu Mandiri e-Money, BCA Flazz, atau Brizzi di belakang ponsel.</p>
             </div>
             <button type="button" onclick="showNfcModal()" class="w-full py-1 bg-teal-600 text-white rounded-lg text-[9px] font-bold">
               Buka Layar Sensor NFC
@@ -1002,17 +1018,8 @@
       refreshCurseCardsUI();
     }
 
-    function calculateRawTotal() {
-      let total = 0;
-      selectedCursesSet.forEach(idx => {
-        total += curses[idx].price;
-      });
-      return total;
-    }
-
     function refreshCurseCardsUI() {
       let rawTotal = 0;
-      let selectedNames = [];
 
       for (let i = 0; i < curses.length; i++) {
         const card = document.getElementById(`curseCard${i}`);
@@ -1025,7 +1032,6 @@
           icon.innerText = 'check_circle';
           icon.className = 'material-symbols-outlined text-supergreen text-xs font-bold';
           rawTotal += curses[i].price;
-          selectedNames.push(curses[i].name);
         } else {
           card.classList.remove('border-2', 'border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/20');
           card.classList.add('border', 'border-slate-200', 'dark:border-slate-700');
@@ -1035,49 +1041,67 @@
       }
 
       document.getElementById('badgeSelectedCount').innerText = `${selectedCursesSet.size} Terpilih`;
-      document.getElementById('btnContinueMahar').innerText = `Pilih Pembayaran (Rp${rawTotal.toLocaleString('id-ID')})`;
+      document.getElementById('btnContinueMahar').innerText = `Pilih Pembayaran (${selectedCursesSet.size} Item - Rp${rawTotal.toLocaleString('id-ID')})`;
       renderPaymentItemsList();
     }
 
-    // Render Full List of Selected Curses & Apply Promo
+    // RENDER SEMUA ITEM DAN TRANSPARANSI KALKULASI PROMO
     function renderPaymentItemsList() {
       const container = document.getElementById('checkoutSelectedItemsList');
       container.innerHTML = '';
-      let rawTotal = 0;
+      let rawSubtotal = 0;
 
-      selectedCursesSet.forEach(idx => {
-        const item = curses[idx];
-        rawTotal += item.price;
+      // Iterasi terurut berdasarkan index katalog agar rapi
+      curses.forEach((item, idx) => {
+        if (selectedCursesSet.has(idx)) {
+          rawSubtotal += item.price;
 
-        const row = document.createElement('div');
-        row.className = 'flex justify-between items-center py-0.5 border-b border-white/10 last:border-none';
-        row.innerHTML = `
-          <span class="truncate pr-2 font-medium">• ${item.name} ${item.isPro ? '<span class="text-[7px] text-amber-300 font-bold">[PRO]</span>' : ''}</span>
-          <span class="font-mono font-bold whitespace-nowrap">Rp${item.price.toLocaleString('id-ID')}</span>
-        `;
-        container.appendChild(row);
+          const row = document.createElement('div');
+          row.className = 'flex justify-between items-center py-0.5 border-b border-white/10 last:border-none';
+          row.innerHTML = `
+            <span class="truncate pr-2 font-medium flex items-center gap-1">
+              <span class="text-emerald-300 text-[10px]">•</span> ${item.name} 
+              ${item.isPro ? '<span class="text-[6.5px] px-1 bg-amber-500 text-white rounded font-extrabold">PRO</span>' : ''}
+            </span>
+            <span class="font-mono font-bold whitespace-nowrap">Rp${item.price.toLocaleString('id-ID')}</span>
+          `;
+          container.appendChild(row);
+        }
       });
 
-      document.getElementById('txtCountSelectedList').innerText = `${selectedCursesSet.size} Item`;
+      document.getElementById('txtCountSelectedList').innerText = `${selectedCursesSet.size} Item Terpilih`;
+      document.getElementById('txtCalcSubtotal').innerText = 'Rp' + rawSubtotal.toLocaleString('id-ID');
 
       // Kalkulasi Diskon Promo
-      let finalPrice = rawTotal;
+      let discountAmount = 0;
       const promoBadge = document.getElementById('txtPromoStatusBadge');
+      const rowDiscount = document.getElementById('rowCalcDiscount');
+      const discountLabel = document.getElementById('txtCalcDiscountLabel');
+      const discountValue = document.getElementById('txtCalcDiscountValue');
 
       if (appliedPromo === 'kliwon30') {
-        const discount = Math.round(rawTotal * 0.3);
-        finalPrice = Math.max(0, rawTotal - discount);
+        discountAmount = Math.round(rawSubtotal * 0.3);
         promoBadge.innerText = 'DISKON 30% DIAKTIFKAN';
-        promoBadge.className = 'text-[7px] px-1 py-0.2 rounded font-bold bg-amber-500 text-white';
+        promoBadge.className = 'text-[7px] px-1.5 py-0.2 rounded font-bold bg-amber-500 text-white';
+        
+        rowDiscount.classList.remove('hidden');
+        discountLabel.innerText = 'Diskon Weton Kliwon (30%):';
+        discountValue.innerText = '-Rp' + discountAmount.toLocaleString('id-ID');
       } else if (appliedPromo === 'cashback50') {
-        finalPrice = Math.max(0, rawTotal - 50000);
+        discountAmount = Math.min(rawSubtotal, 50000);
         promoBadge.innerText = 'POTONGAN 50RB DIAKTIFKAN';
-        promoBadge.className = 'text-[7px] px-1 py-0.2 rounded font-bold bg-purple-600 text-white';
+        promoBadge.className = 'text-[7px] px-1.5 py-0.2 rounded font-bold bg-purple-600 text-white';
+
+        rowDiscount.classList.remove('hidden');
+        discountLabel.innerText = 'Potongan Cashback SantetPay:';
+        discountValue.innerText = '-Rp' + discountAmount.toLocaleString('id-ID');
       } else {
-        promoBadge.innerText = 'TANPA VOUCHER';
-        promoBadge.className = 'text-[7px] px-1 py-0.2 rounded font-bold bg-slate-100 dark:bg-slate-700 text-slate-500';
+        promoBadge.innerText = 'TIDAK PAKAI';
+        promoBadge.className = 'text-[7px] px-1.5 py-0.2 rounded font-bold bg-slate-100 dark:bg-slate-700 text-slate-500';
+        rowDiscount.classList.add('hidden');
       }
 
+      const finalPrice = Math.max(0, rawSubtotal - discountAmount);
       document.getElementById('txtCheckoutPrice').innerText = 'Rp' + finalPrice.toLocaleString('id-ID');
     }
 
@@ -1240,7 +1264,6 @@
       progressBar.style.width = '0%';
       stepText.innerText = 'Menghubungkan frekuensi pasir astral...';
 
-      // Start linear progress over 3 seconds
       setTimeout(() => {
         progressBar.style.width = '100%';
       }, 50);
@@ -1249,22 +1272,28 @@
         stepText.innerText = 'Menyinkronkan akta probabilitas DUKCAPIL...';
       }, 1500);
 
-      // Selesai tepat di detik ke-3 (3000ms)
       setTimeout(() => {
         modal.classList.add('hidden');
 
         const targetName = document.getElementById('inputTargetName').value || 'FERDINAND ARYA';
-        const selectedNames = Array.from(selectedCursesSet).map(idx => curses[idx].name).join(', ');
+        
+        // Ambil nama semua santet terpilih
+        const selectedNamesArr = [];
+        curses.forEach((c, i) => {
+          if (selectedCursesSet.has(i)) selectedNamesArr.push(c.name);
+        });
+        const selectedNamesStr = selectedNamesArr.join(', ');
+
         const newCode = 'ST-2026-' + Math.floor(100 + Math.random() * 900);
 
         transmissionHistory.unshift({
           code: newCode,
           target: targetName,
-          curse: selectedNames,
+          curse: selectedNamesStr,
           status: execMode === 'instant' ? 'TERKIRIM' : 'TERJADWAL'
         });
 
-        showNativeAlert('Transmisi Berhasil!', `Santet [${selectedNames}] telah diluncurkan ke target [${targetName}]. Resi tercatat di Riwayat Transaksi.`, 'check_circle');
+        showNativeAlert('Transmisi Berhasil!', `Santet [${selectedNamesStr}] telah diluncurkan ke target [${targetName}]. Resi tercatat di Riwayat Transaksi.`, 'check_circle');
         goToHome();
       }, 3000);
     }
