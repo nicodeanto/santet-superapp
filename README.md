@@ -1,6 +1,8 @@
-# ⚡ Santet SuperApp - Occult Transmission System
+# ⚡ Santetly - Occult Cloud Platform
 
-Sebuah studi kasus UI/UX Web Application modern yang mengadaptasi pola interaksi *SuperApp* kontemporer (Gojek, Grab, OVO, Livin') dengan tema transendental-satir. Dirancang khusus dalam arsitektur *single-file* responsif tanpa scrolling vertikal (*single-viewport*), mendukung simulasi sensor perangkat (*NFC Tap*), verifikasi NIK mandiri, serta integrasi kanal pembayaran nasional.
+![Visitor Count](https://komarev.com/ghpvc/?username=nicodeanto-santetly&label=Views&color=00AA13&style=flat)
+
+Sebuah studi kasus UI/UX Web Application modern yang mengadaptasi pola interaksi *SuperApp* kontemporer (Gojek, Grab, OVO, Livin') dengan tema transendental-satir. Dirancang khusus dalam arsitektur *single-file* responsif tanpa scrolling vertikal (*single-viewport*), mendukung simulasi sensor perangkat (*NFC Tap*), verifikasi NIK mandiri, multi-select santet, dan integrasi kanal pembayaran nasional.
 
 ---
 
@@ -13,38 +15,44 @@ Akses langsung prototipe aplikasi:
 
 ## ✨ Fitur & Pembaruan Sistem
 
-- **Beranda SuperApp & Loyalty Reward**: Tampilan ringkas berisi dompet *SantetPay Plus*, voucher promo diskon weton kliwon 30%, cashback transaksi perdana, dan menu jalan pintas layanan.
-- **Verifikasi NIK Mandiri (DUKCAPIL Engine)**:
-  - Validasi ketat format 16-digit angka.
-  - Efek visual pemindaian sinkronisasi server DUKCAPIL berdurasi ~1,8 detik.
-  - Pemetaan otomatis identitas target (nama lengkap, jenis kelamin, domisili, serta kalkulasi weton/neptu).
-  - Basis data target terdaftar mencakup *Nicodemus Rusdiyanto*, *Astri Purnani*, *Ferdinand Arya*, dan *Vito Satria*.
-- **Katalog 8 Sanksi Probabilitas (Termasuk 3 Tier PRO)**:
-  - *Dislokasi Kinetik Kelingking* (Hantaman presisi sudut perabot)
-  - *Malfungsi Refleks Bersin* (Gatal klimaks lenyap seketika)
-  - *Kompensasi Rahang Menguap* (Mulut terbuka lebar, kantuk terhambat)
-  - *Spasme Okular Waktu Genting* (Kedutan kelopak mata saat situasi krusial)
-  - *Amnesia Kognitif Giliran Bicara* (Lupa materi presentasi di depan umum)
-  - `[PRO]` *Fraktur Sandal di Kubangan* (Pengait putus di titik becek)
-  - `[PRO]` *Drop Baterai 1% Pas Scan Kasir* (Layar padam di antrean pembayaran)
-  - `[PRO]` *Gatal Kuping Tak Kena Titik* (Sensasi gatal yang tak kunjung terjangkau)
-- **Kanal Pembayaran Terintegrasi**:
-  - **QRIS Standar BI & ASPI**: Dilengkapi bingkai resmi nasional, identitas merchant, NMID, dan logo GPN.
-  - **10 Bank Terbesar di Indonesia**: Pilihan Virtual Account dengan format kode bayar resmi (BCA, Mandiri, BRI, BNI, BSI, CIMB Niaga, BTN, Permata, Danamon, OCBC NISP) lengkap dengan fitur salin nomor.
-  - **Simulasi Sensor Tap NFC**: Uji tempel kartu e-Money, Flazz, atau Brizzi dengan deteksi saldo instan.
-  - **PayLater Karma**: Opsi cicilan 3x khusus untuk mode transmisi terjadwal.
-- **Animasi Telemetri & Tabel Riwayat (History)**:
-  - Efek pemrosesan transmisi sinyal satelit astral selama ~2,5 detik pasca konfirmasi mahar.
-  - Pengalihan otomatis kembali ke beranda.
-  - Pencatatan transaksi real-time ke dalam tabel riwayat (kode resi, target, jenis anomali, dan status).
+- **Beranda Santetly & Dompet SantetPay**:
+  - Saldo terpadu *SantetPay Plus* dengan akses kilat kirim mahar, cek NFC, dan aktivasi PRO Tier.
+  - Carousel voucher promo (Diskon Weton Kliwon 30% dan Cashback Rp50.000).
+- **Verifikasi NIK Terintegrasi DUKCAPIL**:
+  - Validasi ketat format 16 digit angka.
+  - Dropdown contoh cepat langsung di kolom input (mencakup *Nicodemus Rusdiyanto*, *Astri Purnani*, *Ferdinand Arya*, dan *Vito Satria*).
+  - *Dynamic Target Generator*: Menghasilkan identitas nama, tanggal lahir, domisili, dan weton/neptu otomatis jika pengguna mengetik NIK bebas lainnya.
+  - Animasi pemindaian sinkronisasi server DUKCAPIL berdurasi ~1,4 detik.
+- **Katalog Jenis Santet (Multi-Select & Akumulasi Otomatis)**:
+  - Kemampuan memilih lebih dari 1 jenis gangguan sekaligus dengan perhitungan mahar real-time.
+  - Nominal harga di atas 100k menggunakan 3 digit unik acak.
+  - Pilihan sanksi reguler & PRO:
+    - *Dislokasi Kelingking* (Hantaman sudut perabot) — Rp25.000
+    - *Malfungsi Bersin* (Gatal klimaks lenyap) — Rp20.000
+    - *Rahang Menguap* (Mulut terbuka, kantuk macet) — Rp22.000
+    - *Spasme Okular* (Kedutan mata pas meeting) — Rp27.000
+    - *Amnesia Bicara* (Lupa total materi penting) — Rp30.000
+    - `[PRO]` *Fraktur Sandal* (Putus di kubangan hitam) — Rp125.484
+    - `[PRO]` *Drop 1% Scan Kasir* (Layar padam pas antre) — Rp150.592
+    - `[PRO]` *Gatal Tak Kena Titik* (Dikorek tak pernah pas) — Rp115.871
+- **Kasir Mahar Terintegrasi**:
+  - Rincian list lengkap santet yang dipilih beserta harga satuannya.
+  - Pilihan voucher promo interaktif (Diskon 30% & Potongan Langsung Rp50.000).
+  - **QRIS Standar BI & ASPI**: Lengkap dengan NMID resmi merchant dan logo GPN nasional.
+  - **Virtual Account**: Pilihan 10 bank teratas di Indonesia (BCA, Mandiri, BRI, BNI, BSI, CIMB Niaga, BTN, Permata, Danamon, OCBC NISP) dengan format prefix resmi dan tombol salin.
+  - **Simulasi Tap NFC**: Uji tempel kartu e-Money, Flazz, atau Brizzi.
+- **Animasi Jam Pasir & Tabel Riwayat (History)**:
+  - Animasi telemetri rotasi jam pasir (*hourglass*) presisi 3 detik pasca konfirmasi.
+  - Notifikasi modal native app (tanpa browser alert kaku).
+  - Penyimpanan otomatis ke tabel riwayat transaksi (kode resi, target, daftar santet, dan status).
 
 ---
 
 ## 🛠️ Arsitektur Teknologi
 
-- **Markup & Struktur**: HTML5 (Single File Architecture)
-- **Styling**: Tailwind CSS (via CDN)
-- **Tipografi**: Google Fonts (*Plus Jakarta Sans* & *Cinzel*)
+- **Markup & Struktur**: HTML5 (Single-File Architecture)
+- **Styling & Theme**: Tailwind CSS (CDN) + Emerald Light & Occult Dark Mode
+- **Tipografi**: Plus Jakarta Sans & Cinzel (Google Fonts)
 - **Ikonografi**: Google Material Symbols Outlined
 - **Runtime**: Browser Engine Native (Zero Dependency / No Build Step)
 
@@ -52,17 +60,15 @@ Akses langsung prototipe aplikasi:
 
 ## 📖 Alur Penggunaan
 
-1. **Beranda & Promo**: Periksa saldo SantetPay, klaim voucher diskon weton kliwon, atau klik **Mulai Kalibrasi Target**.
-2. **Verifikasi NIK**: Masukkan 16 digit NIK target, lalu klik **Cek NIK** untuk melihat animasi sinkronisasi basis data DUKCAPIL.
-3. **Pemilihan Sanksi & Jadwal**: Pilih salah satu dari 8 sanksi probabilitas (aktifkan tombol `BASIC / PRO TIER` di kanan atas untuk membuka fitur eksklusif). Tentukan mode instan atau sesuai tanggal.
-4. **Pembayaran Mahar**: Pilih kanal pembayaran (QRIS BI, salah satu dari 10 bank Virtual Account, atau Tap NFC).
-5. **Transmisi & Riwayat**: Amati proses peluncuran frekuensi transmisi, lalu pantau statusnya kapan saja melalui menu **Riwayat Transaksi**.
+1. **Beranda**: Klik **Mulai Kalibrasi Target Sasaran**.
+2. **Tahap 1 - Verifikasi NIK**: Masukkan 16 digit NIK atau pilih dari dropdown contoh, lalu klik **Cek NIK** untuk verifikasi identitas.
+3. **Tahap 2 - Jenis Santet**: Centang 1 atau lebih jenis santet yang diinginkan (aktifkan status PRO di kanan atas jika memilih santet PRO).
+4. **Tahap 3 - Kasir Pembayaran**: Tinjau list santet yang dipilih, terapkan voucher diskon, pilih metode (QRIS, Virtual Account, atau NFC), lalu klik **Konfirmasi & Luncurkan Sanksi**.
+5. **Transmisi & Riwayat**: Tunggu animasi jam pasir berputar 3 detik hingga notifikasi sukses muncul, lalu cek pencatatannya di menu **Riwayat**.
 
 ---
 
-## 📂 Menjalankan Secara Mandiri
-
-Tidak membutuhkan instalasi server (Node.js/Python/PHP):
+## 📂 Menjalankan Secara Lokal
 
 ```bash
 # Klon repositori
@@ -71,7 +77,7 @@ git clone [https://github.com/nicodeanto/santet-superapp.git](https://github.com
 # Masuk ke direktori
 cd santet-superapp
 
-# Buka file langsung di browser
+# Buka langsung di browser
 open index.html    # macOS
 xdg-open index.html # Linux
 start index.html   # Windows
