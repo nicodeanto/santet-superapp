@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Santet SuperApp - Transmisi Gaib Modern</title>
+  <title>Santetly - Modern Occult Transmission Platform</title>
   
-  <!-- Google Fonts: Plus Jakarta Sans & Cinzel Decorative -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Google Material Symbols Outlined -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -87,21 +83,19 @@
           <span class="material-symbols-outlined text-lg">bolt</span>
         </div>
         <div>
-          <span class="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-            Santet<span class="text-supergreen">SuperApp</span>
+          <span class="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5">
+            Santet<span class="text-supergreen">ly</span>
           </span>
-          <span class="text-[9px] block text-slate-400 font-semibold leading-none">Occult System v3.6</span>
+          <span class="text-[9px] block text-slate-400 font-semibold leading-none">Occult Cloud Platform v3.8</span>
         </div>
       </div>
 
       <div class="flex items-center space-x-1.5">
-        <!-- PRO Badge Switch -->
         <button id="btnTogglePro" onclick="toggleProStatus()" class="px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-600">
           <span class="material-symbols-outlined text-xs">workspace_premium</span>
           <span id="txtProBadge">BASIC</span>
         </button>
 
-        <!-- Dark/Light Theme -->
         <button onclick="toggleTheme()" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
           <span class="material-symbols-outlined text-lg" id="themeIcon">dark_mode</span>
         </button>
@@ -120,7 +114,7 @@
     <!-- MAIN VIEWPORT -->
     <main class="flex-1 overflow-hidden relative p-3">
 
-      <!-- ================= SCREEN 0: BERANDA UTAMA LENGKAP PROMO ================= -->
+      <!-- ================= SCREEN 0: BERANDA UTAMA SANTETLY ================= -->
       <section id="viewHome" class="h-full flex flex-col justify-between">
         <div class="space-y-2.5">
           
@@ -128,7 +122,7 @@
           <div class="bg-gradient-to-r from-emerald-600 to-teal-800 text-white rounded-2xl p-3 shadow-lg relative overflow-hidden">
             <div class="flex justify-between items-start mb-1.5">
               <div>
-                <span class="text-[9px] uppercase tracking-wider font-semibold opacity-80 block">Dompet Mahar Transmisi</span>
+                <span class="text-[9px] uppercase tracking-wider font-semibold opacity-80 block">Dompet Mahar Astral</span>
                 <span class="text-lg font-black tracking-tight flex items-center gap-1">
                   Rp425.000 <span class="material-symbols-outlined text-xs opacity-75">verified</span>
                 </span>
@@ -163,7 +157,7 @@
                 <div class="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-supergreen flex items-center justify-center border border-emerald-100 dark:border-emerald-800/60 shadow-sm group-hover:scale-105 transition-all">
                   <span class="material-symbols-outlined text-xl">electric_bolt</span>
                 </div>
-                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Transmisi Kilat</span>
+                <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200 mt-1">Santetly Kilat</span>
               </button>
 
               <button onclick="startOrderFlow()" class="flex flex-col items-center group">
@@ -192,7 +186,7 @@
           <!-- PROMO & LOYALTY CAROUSEL BANNER -->
           <div class="space-y-1.5">
             <div class="flex justify-between items-center">
-              <span class="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Promo Khusus Hari Ini</span>
+              <span class="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Promo Khusus Santetly</span>
               <span class="text-[9px] text-supergreen font-bold">Klaim Otomatis</span>
             </div>
 
@@ -207,13 +201,13 @@
                     Diskon Mahar Weton Kliwon 30%
                     <span class="px-1 py-0.2 bg-rose-500 text-white rounded text-[7px] font-bold">HEMAT</span>
                   </div>
-                  <div class="text-[9px] text-slate-500 dark:text-slate-400">Berlaku untuk semua kalibrasi target NIK resmi.</div>
+                  <div class="text-[9px] text-slate-500 dark:text-slate-400">Otomatis terpotong saat checkout dengan SantetPay.</div>
                 </div>
               </div>
               <button onclick="startOrderFlow()" class="px-2 py-1 bg-amber-500 hover:bg-amber-600 text-white text-[9px] font-bold rounded-lg shadow-sm">Pakai</button>
             </div>
 
-            <!-- Promo Banner 2: Flash Sale Sanksi Kinetik -->
+            <!-- Promo Banner 2: Cashback NFC -->
             <div class="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <div class="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center shadow-md shadow-purple-600/30">
@@ -221,18 +215,17 @@
                 </div>
                 <div>
                   <div class="text-[11px] font-black text-slate-900 dark:text-white">Cashback 50.000 SantetPay</div>
-                  <div class="text-[9px] text-slate-500 dark:text-slate-400">Khusus pembayaran pertama via Tap NFC Sensor.</div>
+                  <div class="text-[9px] text-slate-500 dark:text-slate-400">Khusus pembayaran perdana via sensor tap NFC.</div>
                 </div>
               </div>
               <button onclick="showNfcModal()" class="px-2 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-[9px] font-bold rounded-lg">Cek NFC</button>
             </div>
           </div>
 
-          <!-- Bottom Assurance Micro Banner -->
           <div class="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-2 flex items-center gap-2">
             <span class="material-symbols-outlined text-supergreen text-lg">security</span>
             <p class="text-[9px] text-emerald-800 dark:text-emerald-300 font-semibold leading-tight">
-              Seluruh transmisi anomali terikat akta hukum probabilitas dan terlindungi dari proteksi balik.
+              Seluruh transmisi anomali Santetly terikat akta hukum probabilitas dan terlindungi proteksi pantul.
             </p>
           </div>
 
@@ -244,69 +237,79 @@
         </button>
       </section>
 
-      <!-- ================= STEP 1: INPUT NIK MANUAL & CEK ANIMASI DUKCAPIL ================= -->
+      <!-- ================= STEP 1: INPUT NIK DENGAN CONTOH DROPDOWN & DUMMY AUTO-GEN ================= -->
       <section id="step1" class="h-full hidden flex-col justify-between">
-        <div class="space-y-3">
+        <div class="space-y-2">
           
-          <div class="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-2.5 flex items-center gap-2">
-            <span class="material-symbols-outlined text-supergreen text-xl">shield_person</span>
+          <div class="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-supergreen text-lg">shield_person</span>
             <div>
-              <p class="text-[11px] font-bold text-slate-900 dark:text-white">Pengecekan NIK Mandiri</p>
-              <p class="text-[9px] text-slate-500 dark:text-slate-400">Ketik 16 digit NIK target untuk sinkronisasi basis data DUKCAPIL.</p>
+              <p class="text-[10px] font-bold text-slate-900 dark:text-white leading-tight">Pengecekan NIK Mandiri DUKCAPIL</p>
+              <p class="text-[8.5px] text-slate-500 dark:text-slate-400 leading-none">Pilih contoh NIK terdaftar di kolom atau ketik NIK bebas 16 digit.</p>
             </div>
           </div>
 
-          <!-- NIK Input Field -->
-          <div class="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-3 space-y-2">
+          <!-- NIK Input Field with Datalist Trial Presets -->
+          <div class="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-2.5 space-y-2">
             <div>
-              <label class="text-[10px] font-bold text-slate-500 uppercase flex justify-between">
-                <span>Nomor Induk Kependudukan (16 Digit)</span>
-                <span id="txtNikCount" class="text-supergreen font-mono">16/16</span>
-              </label>
+              <div class="flex justify-between items-center">
+                <label class="text-[9px] font-bold text-slate-500 uppercase">Input NIK (Pilih Contoh / Ketik Bebas)</label>
+                <span id="txtNikCount" class="text-[9px] text-supergreen font-mono font-bold">16/16</span>
+              </div>
+              
               <div class="relative mt-1">
-                <input id="inputTargetNik" type="tel" maxlength="16" value="3171012903820001" oninput="handleNikInput(this)" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl py-2 px-3 text-sm font-mono font-bold tracking-wider text-slate-900 dark:text-white focus:outline-none focus:border-supergreen">
-                <button type="button" onclick="triggerDukcapilCheck()" class="absolute right-1.5 top-1.5 px-2.5 py-1 bg-supergreen text-white text-[10px] font-bold rounded-lg shadow-sm hover:bg-emerald-600 transition-all flex items-center gap-1">
+                <input id="inputTargetNik" list="nikPresetList" type="text" maxlength="16" value="3171012903820001" oninput="handleNikInput(this)" placeholder="Ketik 16 angka atau pilih contoh..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl py-2 pl-2.5 pr-20 text-xs font-mono font-bold tracking-wider text-slate-900 dark:text-white focus:outline-none focus:border-supergreen">
+                
+                <datalist id="nikPresetList">
+                  <option value="3171012903820001">NICODEMUS RUSDIYANTO (DKI Jakarta)</option>
+                  <option value="3171015507850002">ASTRI PURNANI (Tangerang)</option>
+                  <option value="3275031409940003">FERDINAND ARYA (Bekasi)</option>
+                  <option value="3578042211980004">VITO SATRIA (Surabaya)</option>
+                </datalist>
+
+                <button type="button" onclick="triggerDukcapilCheck()" class="absolute right-1 top-1 px-2.5 py-1.5 bg-supergreen text-white text-[9px] font-bold rounded-lg shadow-sm hover:bg-emerald-600 transition-all flex items-center gap-1">
                   <span class="material-symbols-outlined text-xs">search</span>
                   <span>Cek NIK</span>
                 </button>
               </div>
+              <p class="text-[8px] text-slate-400 mt-1 italic leading-tight">*Klik dua kali pada kolom input di atas untuk melihat 4 contoh NIK bawaan trial.</p>
             </div>
 
-            <!-- Dukcapil Scanning Animation State (Hidden by default) -->
-            <div id="dukcapilScanningBox" class="hidden py-4 text-center relative overflow-hidden rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-dashed border-supergreen/50">
+            <!-- Dukcapil Scanning Animation State -->
+            <div id="dukcapilScanningBox" class="hidden py-3 text-center relative overflow-hidden rounded-xl bg-slate-50 dark:bg-slate-900/70 border border-dashed border-supergreen/50">
               <div class="scanline"></div>
-              <span class="material-symbols-outlined text-supergreen text-2xl animate-spin">sync</span>
-              <p class="text-[10px] font-bold text-slate-700 dark:text-slate-200 mt-1">Menghubungkan ke Server DUKCAPIL Pusat...</p>
-              <p class="text-[8px] font-mono text-slate-400">Querying SHA-256 encrypted ledger records</p>
+              <span class="material-symbols-outlined text-supergreen text-xl animate-spin">sync</span>
+              <p class="text-[9px] font-bold text-slate-700 dark:text-slate-200 mt-0.5">Menghubungkan ke Server DUKCAPIL Pusat...</p>
+              <p class="text-[7.5px] font-mono text-slate-400">Querying SHA-256 encrypted records</p>
             </div>
 
-            <!-- Dukcapil Success Status -->
-            <div id="dukcapilSuccessNotice" class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 p-2 rounded-xl border border-emerald-200 dark:border-emerald-800">
-              <span class="material-symbols-outlined text-sm">verified</span>
-              <span class="text-[10px] font-bold">Berhasil Terverifikasi Database DUKCAPIL</span>
+            <!-- Dukcapil Success Notice -->
+            <div id="dukcapilSuccessNotice" class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 p-1.5 rounded-xl border border-emerald-200 dark:border-emerald-800">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span class="text-[9px] font-bold" id="txtVerifyNotice">Berhasil Terverifikasi Database DUKCAPIL</span>
             </div>
 
             <!-- Target Verified Details Card -->
-            <div id="targetDetailsCard" class="space-y-1.5 pt-1 text-xs">
-              <div class="grid grid-cols-2 gap-2">
+            <div id="targetDetailsCard" class="space-y-1 pt-0.5 text-xs">
+              <div class="grid grid-cols-2 gap-1.5">
                 <div>
-                  <label class="text-[9px] font-bold text-slate-400 uppercase">Nama Terdaftar</label>
-                  <input id="inputTargetName" type="text" value="NICODEMUS RUSDIYANTO" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] font-bold text-slate-800 dark:text-slate-200">
+                  <label class="text-[8px] font-bold text-slate-400 uppercase">Nama Lengkap</label>
+                  <input id="inputTargetName" type="text" value="NICODEMUS RUSDIYANTO" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[10px] font-bold text-slate-800 dark:text-slate-200">
                 </div>
                 <div>
-                  <label class="text-[9px] font-bold text-slate-400 uppercase">Weton / Neptu</label>
-                  <input id="inputTargetWeton" type="text" value="Rabu Pon (Neptu 14)" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] font-semibold text-supergreen">
+                  <label class="text-[8px] font-bold text-slate-400 uppercase">Tanggal Lahir</label>
+                  <input id="inputTargetDob" type="text" value="29 Maret 1982" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[10px] font-medium text-slate-700 dark:text-slate-300">
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid grid-cols-2 gap-1.5">
                 <div>
-                  <label class="text-[9px] font-bold text-slate-400 uppercase">Jenis Kelamin</label>
-                  <input id="inputTargetGender" type="text" value="Laki-Laki" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <label class="text-[8px] font-bold text-slate-400 uppercase">Weton / Neptu</label>
+                  <input id="inputTargetWeton" type="text" value="Rabu Pon (Neptu 14)" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[10px] font-semibold text-supergreen">
                 </div>
                 <div>
-                  <label class="text-[9px] font-bold text-slate-400 uppercase">Domisili Hukum</label>
-                  <input id="inputTargetCity" type="text" value="DKI JAKARTA" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[11px] text-slate-600 dark:text-slate-300">
+                  <label class="text-[8px] font-bold text-slate-400 uppercase">Domisili Hukum</label>
+                  <input id="inputTargetCity" type="text" value="DKI JAKARTA" readonly class="w-full bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 rounded-lg py-1 px-2 text-[10px] text-slate-600 dark:text-slate-300">
                 </div>
               </div>
             </div>
@@ -317,125 +320,147 @@
         <div class="flex gap-2">
           <button onclick="goToHome()" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Batal</button>
           <button onclick="validateAndGoStep2()" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25 transition-all">
-            <span>Pilih Sanksi Anomali</span>
+            <span>Pilih Jenis Santet</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
         </div>
       </section>
 
-      <!-- ================= STEP 2: KATALOG SANKSI ANOMALI (8 PILIHAN) ================= -->
+      <!-- ================= STEP 2: JENIS SANTET (MULTI-SELECT & AUTO CALCULATE) ================= -->
       <section id="step2" class="h-full hidden flex-col justify-between">
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <span class="text-[11px] font-extrabold text-slate-700 dark:text-slate-200 uppercase tracking-wide">Katalog Sanksi Probabilitas Keseharian</span>
-            <span class="text-[9px] px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold">100% Menjengkelkan</span>
+            <span class="text-[11px] font-extrabold text-slate-700 dark:text-slate-200 uppercase tracking-wide">Pilih Jenis Santet (Bisa >1)</span>
+            <span id="badgeSelectedCount" class="text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-supergreen font-bold">1 Terpilih</span>
           </div>
 
-          <!-- 8 Grid Items (4 Rows x 2 Cols) Compact layout fits on 1 viewport -->
+          <!-- 8 Grid Items Compact with Multi-Selection Checkbox Style -->
           <div class="grid grid-cols-2 gap-1.5" id="curseGrid">
-            
             <!-- 1. Dislokasi Kinetik Kelingking -->
-            <div onclick="selectCurse(0)" id="curseCard0" class="curse-item cursor-pointer p-1.5 rounded-xl border-2 border-supergreen bg-emerald-50/50 dark:bg-emerald-950/20 transition-all flex flex-col justify-between h-[64px] relative">
+            <div onclick="toggleCurseSelection(0)" id="curseCard0" class="curse-item cursor-pointer p-1.5 rounded-xl border-2 border-supergreen bg-emerald-50/50 dark:bg-emerald-950/20 transition-all flex flex-col justify-between h-[64px] relative">
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-base">hardware</span>
-                <span class="text-[9px] font-black text-slate-900 dark:text-white">Rp25.000</span>
+                <span class="text-[9px] font-black text-slate-900 dark:text-white" id="cursePrice0">Rp25.000</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Dislokasi Kinetik Kelingking</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Hantaman presisi sudut perabot.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Dislokasi Kelingking</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Hantaman sudut perabot.</p>
+                </div>
+                <span class="material-symbols-outlined text-supergreen text-xs font-bold" id="checkIcon0">check_circle</span>
               </div>
             </div>
 
             <!-- 2. Malfungsi Refleks Bersin -->
-            <div onclick="selectCurse(1)" id="curseCard1" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px]">
+            <div onclick="toggleCurseSelection(1)" id="curseCard1" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px] relative">
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-amber-500 text-base">air</span>
-                <span class="text-[9px] font-black text-slate-900 dark:text-white">Rp20.000</span>
+                <span class="text-[9px] font-black text-slate-900 dark:text-white" id="cursePrice1">Rp20.000</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Malfungsi Refleks Bersin</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Gatal klimaks hilang seketika.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Malfungsi Bersin</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Gatal klimaks lenyap.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon1">radio_button_unchecked</span>
               </div>
             </div>
 
             <!-- 3. Kompensasi Rahang Menguap -->
-            <div onclick="selectCurse(2)" id="curseCard2" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px]">
+            <div onclick="toggleCurseSelection(2)" id="curseCard2" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px] relative">
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-blue-500 text-base">sentiment_dissatisfied</span>
-                <span class="text-[9px] font-black text-slate-900 dark:text-white">Rp22.000</span>
+                <span class="text-[9px] font-black text-slate-900 dark:text-white" id="cursePrice2">Rp22.000</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Kompensasi Rahang Menguap</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Mulut terbuka lebar, kantuk macet.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Rahang Menguap</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Mulut terbuka, kantuk macet.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon2">radio_button_unchecked</span>
               </div>
             </div>
 
             <!-- 4. Spasme Okular Waktu Genting -->
-            <div onclick="selectCurse(3)" id="curseCard3" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px]">
+            <div onclick="toggleCurseSelection(3)" id="curseCard3" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px] relative">
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-purple-500 text-base">visibility</span>
-                <span class="text-[9px] font-black text-slate-900 dark:text-white">Rp27.000</span>
+                <span class="text-[9px] font-black text-slate-900 dark:text-white" id="cursePrice3">Rp27.000</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Spasme Okular Genting</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Kedutan mata tiada henti pas meeting.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Spasme Okular</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Kedutan mata pas meeting.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon3">radio_button_unchecked</span>
               </div>
             </div>
 
             <!-- 5. Amnesia Kognitif Giliran Bicara -->
-            <div onclick="selectCurse(4)" id="curseCard4" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px]">
+            <div onclick="toggleCurseSelection(4)" id="curseCard4" class="curse-item cursor-pointer p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all flex flex-col justify-between h-[64px] relative">
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-rose-500 text-base">psychology_alt</span>
-                <span class="text-[9px] font-black text-slate-900 dark:text-white">Rp30.000</span>
+                <span class="text-[9px] font-black text-slate-900 dark:text-white" id="cursePrice4">Rp30.000</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Amnesia Giliran Bicara</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Lupa total materi di depan umum.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Amnesia Bicara</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Lupa total materi penting.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon4">radio_button_unchecked</span>
               </div>
             </div>
 
-            <!-- 6. Fraktur Sandal Kubangan Becek [PRO] -->
-            <div onclick="selectCurse(5)" id="curseCard5" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
+            <!-- 6. Fraktur Sandal Becek [PRO] -->
+            <div onclick="toggleCurseSelection(5)" id="curseCard5" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
               <span class="absolute right-1 top-1 px-1 py-0.2 bg-amber-500 text-white rounded text-[7px] font-extrabold">PRO</span>
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-amber-600 text-base">humidity_high</span>
-                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400">Rp45.000</span>
+                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400" id="cursePrice5">Rp125.484</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Fraktur Sandal Becek</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Pengait putus di kubangan hitam.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Fraktur Sandal</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Putus di kubangan hitam.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon5">radio_button_unchecked</span>
               </div>
             </div>
 
-            <!-- 7. Baterai Drop 1% Pas Scan Kasir [PRO] -->
-            <div onclick="selectCurse(6)" id="curseCard6" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
+            <!-- 7. Baterai Drop 1% [PRO] -->
+            <div onclick="toggleCurseSelection(6)" id="curseCard6" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
               <span class="absolute right-1 top-1 px-1 py-0.2 bg-amber-500 text-white rounded text-[7px] font-extrabold">PRO</span>
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-amber-600 text-base">battery_alert</span>
-                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400">Rp50.000</span>
+                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400" id="cursePrice6">Rp150.592</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Drop 1% Pas Scan Kasir</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Layar mati pas antrean panjang.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Drop 1% Scan Kasir</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Layar padam pas antre.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon6">radio_button_unchecked</span>
               </div>
             </div>
 
-            <!-- 8. Gatal Kuping Tak Kena Titiknya [PRO] -->
-            <div onclick="selectCurse(7)" id="curseCard7" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
+            <!-- 8. Gatal Kuping [PRO] -->
+            <div onclick="toggleCurseSelection(7)" id="curseCard7" class="curse-item cursor-pointer p-1.5 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50/40 dark:bg-amber-950/20 transition-all flex flex-col justify-between h-[64px] relative overflow-hidden">
               <span class="absolute right-1 top-1 px-1 py-0.2 bg-amber-500 text-white rounded text-[7px] font-extrabold">PRO</span>
               <div class="flex items-center justify-between">
                 <span class="material-symbols-outlined text-amber-600 text-base">hearing_disabled</span>
-                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400">Rp40.000</span>
+                <span class="text-[9px] font-black text-amber-600 dark:text-amber-400" id="cursePrice7">Rp115.871</span>
               </div>
-              <div>
-                <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Gatal Kuping Tak Kena Titik</p>
-                <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Dikorek di manapun tak pernah pas.</p>
+              <div class="flex items-end justify-between">
+                <div>
+                  <p class="text-[9px] font-bold text-slate-900 dark:text-white leading-tight">Gatal Tak Kena Titik</p>
+                  <p class="text-[7.5px] text-slate-500 dark:text-slate-400 truncate">Dikorek tak pernah pas.</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs" id="checkIcon7">radio_button_unchecked</span>
               </div>
             </div>
-
           </div>
 
-          <!-- Waktu Pelaksanaan Option: Instan vs Sesuai Tanggal -->
+          <!-- Jadwal Transmisi -->
           <div class="bg-slate-50 dark:bg-slate-800/80 p-2 rounded-xl border border-slate-200 dark:border-slate-700 space-y-1">
             <span class="text-[9px] font-bold text-slate-500 uppercase">Jadwal Transmisi Anomali</span>
             <div class="grid grid-cols-2 gap-1.5">
@@ -451,12 +476,11 @@
                 <span class="material-symbols-outlined text-slate-400 text-base">calendar_month</span>
                 <div>
                   <div class="text-[9px] font-bold text-slate-700 dark:text-slate-300 leading-tight">Sesuai Tanggal</div>
-                  <div class="text-[7.5px] text-emerald-600 dark:text-emerald-400 leading-none">Bisa Cicil PayLater</div>
+                  <div class="text-[7.5px] text-emerald-600 dark:text-emerald-400 leading-none">Bisa Cicil Santetly PayLater</div>
                 </div>
               </button>
             </div>
 
-            <!-- Date Picker -->
             <div id="scheduledDateWrapper" class="hidden pt-0.5">
               <input type="date" id="inputScheduledDate" value="2026-09-15" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-1 text-[10px] font-semibold text-slate-800 dark:text-white">
             </div>
@@ -466,21 +490,20 @@
         <div class="flex gap-2">
           <button onclick="goToStep(1)" class="w-1/3 py-2.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-xl text-xs">Kembali</button>
           <button onclick="goToStep(3)" class="w-2/3 py-2.5 bg-supergreen hover:bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/25">
-            <span>Pilih Pembayaran</span>
+            <span id="btnContinueMahar">Pilih Pembayaran (Rp25.000)</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
         </div>
       </section>
 
-      <!-- ================= STEP 3: KASIR MAHAR (QRIS STANDAR BI & 10 TOP BANK VA) ================= -->
+      <!-- ================= STEP 3: KASIR MAHAR SANTETPAY (QRIS BI & VIRTUAL ACCOUNT) ================= -->
       <section id="step3" class="h-full hidden flex-col justify-between">
         <div class="space-y-2">
           
-          <!-- Mahar Overview Badge -->
           <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-2.5 rounded-xl flex justify-between items-center shadow-md">
             <div>
-              <span class="text-[8px] uppercase font-bold tracking-wider opacity-80 block">Mahar Terverifikasi</span>
-              <span id="txtCheckoutCurse" class="text-xs font-bold truncate block">Dislokasi Kinetik Kelingking</span>
+              <span class="text-[8px] uppercase font-bold tracking-wider opacity-80 block">Mahar Terverifikasi (SantetPay)</span>
+              <span id="txtCheckoutCurse" class="text-xs font-bold truncate block">1 Jenis Santet Terpilih</span>
               <span id="txtCheckoutMode" class="text-[8px] text-emerald-200">Mode: Eksekusi Instan</span>
             </div>
             <div class="text-right">
@@ -496,7 +519,7 @@
             </button>
             <button type="button" onclick="switchPayTab('va')" id="tabBtnVa" class="py-1.5 text-[10px] font-bold rounded-lg text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
               <span class="material-symbols-outlined text-xs">account_balance</span>
-              <span>10 Bank VA</span>
+              <span>Virtual Account</span>
             </button>
             <button type="button" onclick="switchPayTab('nfc')" id="tabBtnNfc" class="py-1.5 text-[10px] font-bold rounded-lg text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
               <span class="material-symbols-outlined text-xs">contactless</span>
@@ -504,9 +527,8 @@
             </button>
           </div>
 
-          <!-- TAB 1: QRIS RESMI STANDAR BANK INDONESIA (ASPI) -->
+          <!-- TAB 1: QRIS RESMI STANDAR BI (ASPI) -->
           <div id="panelPayQris" class="bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-2xl p-2.5 text-center shadow-sm">
-            <!-- QRIS BI Header Frame -->
             <div class="border-b border-slate-100 dark:border-slate-700 pb-1.5 mb-2 flex items-center justify-between">
               <div class="flex items-center gap-1">
                 <span class="px-1.5 py-0.5 bg-red-600 text-white font-black text-[9px] tracking-wider rounded">QRIS</span>
@@ -515,16 +537,13 @@
               <span class="text-[8px] font-mono font-bold text-slate-400">GPN / ASPI</span>
             </div>
 
-            <!-- Merchant info -->
             <div class="text-left mb-1.5">
-              <div class="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-tight">SANTET SUPERAPP TRANSMISI ASTRAL</div>
+              <div class="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-tight">SANTETLY OCCULT SERVICES INDONESIA</div>
               <div class="text-[8px] text-slate-400 font-mono">NMID: ID102409883199801 | A01</div>
             </div>
 
-            <!-- Interactive QR Graphic with BI Logo Style -->
             <div class="relative w-36 h-36 mx-auto bg-white p-2 rounded-xl border border-slate-300 shadow-inner flex items-center justify-center">
               <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor">
-                <!-- Outer markers -->
                 <rect x="5" y="5" width="26" height="26" fill="black" rx="2" />
                 <rect x="9" y="9" width="18" height="18" fill="white" />
                 <rect x="13" y="13" width="10" height="10" fill="black" />
@@ -537,7 +556,6 @@
                 <rect x="9" y="73" width="18" height="18" fill="white" />
                 <rect x="13" y="77" width="10" height="10" fill="black" />
 
-                <!-- Random data grid pattern -->
                 <rect x="36" y="8" width="6" height="6" />
                 <rect x="46" y="12" width="6" height="6" />
                 <rect x="56" y="8" width="6" height="6" />
@@ -563,36 +581,34 @@
                 <rect x="82" y="70" width="8" height="8" />
                 <rect x="74" y="82" width="14" height="8" />
 
-                <!-- Center Center Shield -->
                 <rect x="39" y="39" width="22" height="22" fill="white" rx="4" />
                 <rect x="42" y="42" width="16" height="16" fill="#00AA13" rx="2" />
                 <circle cx="50" cy="50" r="4" fill="white" />
               </svg>
             </div>
-            <p class="text-[8px] text-slate-400 mt-1 font-semibold">Dapat dipindai melalui BCA, Mandiri Livin, BRImo, GoPay, OVO, ShopeePay, DANA</p>
+            <p class="text-[8px] text-slate-400 mt-1 font-semibold">Dapat dipindai via SantetPay, BCA, Livin Mandiri, BRImo, GoPay, OVO, ShopeePay</p>
           </div>
 
-          <!-- TAB 2: VIRTUAL ACCOUNT 10 BANK TERATAS INDONESIA -->
+          <!-- TAB 2: VIRTUAL ACCOUNT -->
           <div id="panelPayVa" class="hidden bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-2xl p-2.5 shadow-sm space-y-2">
             <div>
-              <label class="text-[9px] font-bold text-slate-500 uppercase">Pilih Bank Teratas Indonesia</label>
+              <label class="text-[9px] font-bold text-slate-500 uppercase">Pilih Virtual Account Bank</label>
               <select id="selectTopBank" onchange="updateVaDisplay()" class="mt-0.5 w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl py-1.5 px-2 text-[11px] font-bold text-slate-900 dark:text-white focus:outline-none focus:border-supergreen">
-                <option value="bca">1. Bank Central Asia (BCA)</option>
-                <option value="mandiri">2. Bank Mandiri</option>
-                <option value="bri">3. Bank Rakyat Indonesia (BRI)</option>
-                <option value="bni">4. Bank Negara Indonesia (BNI)</option>
-                <option value="bsi">5. Bank Syariah Indonesia (BSI)</option>
-                <option value="cimb">6. Bank CIMB Niaga</option>
-                <option value="btn">7. Bank Tabungan Negara (BTN)</option>
-                <option value="permata">8. Bank Permata</option>
-                <option value="danamon">9. Bank Danamon</option>
-                <option value="ocbc">10. Bank OCBC NISP</option>
+                <option value="bca">BCA Virtual Account</option>
+                <option value="mandiri">Mandiri Virtual Account</option>
+                <option value="bri">BRI Virtual Account (BRIVA)</option>
+                <option value="bni">BNI Virtual Account</option>
+                <option value="bsi">BSI Virtual Account</option>
+                <option value="cimb">CIMB Niaga Virtual Account</option>
+                <option value="btn">BTN Virtual Account</option>
+                <option value="permata">Permata Virtual Account</option>
+                <option value="danamon">Danamon Virtual Account</option>
+                <option value="ocbc">OCBC NISP Virtual Account</option>
               </select>
             </div>
 
-            <!-- VA Code Display with Copy Button -->
             <div class="bg-slate-50 dark:bg-slate-900 p-2 rounded-xl border border-slate-200 dark:border-slate-800">
-              <span class="text-[8px] text-slate-400 font-bold uppercase block" id="txtVaLabel">Nomor Virtual Account BCA:</span>
+              <span class="text-[8px] text-slate-400 font-bold uppercase block" id="txtVaLabel">Nomor Virtual Account:</span>
               <div class="flex items-center justify-between mt-0.5">
                 <span class="text-sm font-mono font-black text-supergreen tracking-wider" id="txtVaNumber">1220812903820001</span>
                 <button type="button" onclick="copyVaNumber()" class="px-2 py-0.5 bg-slate-200 dark:bg-slate-800 hover:bg-supergreen hover:text-white rounded text-[9px] font-bold transition-all">
@@ -600,7 +616,7 @@
                 </button>
               </div>
             </div>
-            <p class="text-[8px] text-slate-400" id="txtVaGuide">Petunjuk: Masukkan kode VA via menu Transfer Virtual Account m-Banking terkait.</p>
+            <p class="text-[8px] text-slate-400" id="txtVaGuide">Petunjuk: Masukkan nomor VA via menu Transfer Virtual Account m-Banking terkait.</p>
           </div>
 
           <!-- TAB 3: NFC TAP SENSOR -->
@@ -617,9 +633,8 @@
             </button>
           </div>
 
-          <!-- Paylater Note (if scheduled) -->
           <div id="paylaterNoticeBox" class="hidden p-2 rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 text-[9px] text-purple-700 dark:text-purple-300">
-            <span class="font-bold">Mode Terjadwal Aktif:</span> Cicilan PayLater Karma 3x siap didebit bertahap sebelum tanggal anomali tiba.
+            <span class="font-bold">Santetly PayLater Aktif:</span> Cicilan 3x siap didebit otomatis dari saldo SantetPay sebelum tanggal transmisi tiba.
           </div>
 
         </div>
@@ -633,30 +648,28 @@
         </div>
       </section>
 
-      <!-- ================= SCREEN 4: TABEL RIWAYAT TRANSAKSI (HISTORY) ================= -->
+      <!-- ================= SCREEN 4: TABEL RIWAYAT TRANSAKSI ================= -->
       <section id="viewHistory" class="h-full hidden flex-col justify-between">
         <div class="space-y-2">
           <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-1.5">
             <div>
-              <h2 class="text-xs font-black text-slate-900 dark:text-white">Tabel Riwayat Transmisi</h2>
+              <h2 class="text-xs font-black text-slate-900 dark:text-white">Tabel Riwayat Santetly</h2>
               <p class="text-[9px] text-slate-400">Daftar anomali yang telah diverifikasi & dikirim</p>
             </div>
             <span class="material-symbols-outlined text-supergreen text-lg">verified</span>
           </div>
 
-          <!-- Table Wrapper (No scroll, compact rows) -->
           <div class="border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-800/60">
             <table class="w-full text-left text-[9px]">
               <thead class="bg-slate-50 dark:bg-slate-900 text-slate-500 border-b border-slate-200 dark:border-slate-800 uppercase font-bold">
                 <tr>
                   <th class="py-1.5 px-2">Kode Resi</th>
                   <th class="py-1.5 px-2">Nama Target</th>
-                  <th class="py-1.5 px-2">Sanksi Anomali</th>
+                  <th class="py-1.5 px-2">Jenis Santet</th>
                   <th class="py-1.5 px-2">Status</th>
                 </tr>
               </thead>
               <tbody id="tableHistoryBody" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
-                <!-- Initial Mock Record -->
                 <tr>
                   <td class="py-2 px-2 text-supergreen font-bold">ST-2026-001</td>
                   <td class="py-2 px-2 font-bold text-slate-800 dark:text-slate-200">FERDINAND ARYA</td>
@@ -701,7 +714,23 @@
 
   </div>
 
-  <!-- ================= MODAL: PROSES TRANSMISI TELEMETRI (ANIMASI BEBERAPA DETIK) ================= -->
+  <!-- ================= MODAL NATIVE: NOTIFIKASI APP ================= -->
+  <div id="nativeAlertModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-xs rounded-2xl p-4 text-center shadow-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+      <div id="nativeAlertIconBox" class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto">
+        <span id="nativeAlertIcon" class="material-symbols-outlined text-2xl">info</span>
+      </div>
+      <div>
+        <h3 id="nativeAlertTitle" class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-tight">Pemberitahuan Sistem</h3>
+        <p id="nativeAlertMsg" class="text-[10px] text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">Pesan notifikasi...</p>
+      </div>
+      <button onclick="closeNativeAlert()" class="w-full py-2 bg-supergreen hover:bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-600/20">
+        Mengerti
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: PROSES TRANSMISI TELEMETRI ================= -->
   <div id="processingModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white dark:bg-slate-900 w-full max-w-xs rounded-3xl p-5 text-center shadow-2xl border border-slate-200 dark:border-slate-800 space-y-3 relative overflow-hidden">
       <div class="scanline"></div>
@@ -712,11 +741,10 @@
       </div>
 
       <div>
-        <h3 class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-tight">Memproses Transmisi Anomali...</h3>
+        <h3 class="text-xs font-black text-slate-900 dark:text-white uppercase tracking-tight">Memproses Transmisi Santetly...</h3>
         <p class="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5" id="txtProcessingStep">Menghubungkan ke node satelit kosmik...</p>
       </div>
 
-      <!-- Telemetry Status Bar -->
       <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
         <div id="processingProgressBar" class="bg-supergreen h-full w-1/4 transition-all duration-300"></div>
       </div>
@@ -769,49 +797,68 @@
   <script>
     let isPro = false;
     let execMode = 'instant';
-    let selectedCurseIndex = 0;
+    let selectedCursesSet = new Set([0]); // Multi-select Set (Default item 0 selected)
     let activePayTab = 'qris';
 
     // Local History Array
     let transmissionHistory = [
-      { code: 'ST-2026-001', target: 'FERDINAND ARYA', curse: 'Dislokasi Kinetik Kelingking', status: 'TERKIRIM' }
+      { code: 'ST-2026-001', target: 'FERDINAND ARYA', curse: 'Dislokasi Kelingking', status: 'TERKIRIM' }
     ];
 
-    // 10 Bank Virtual Account Prefix & Formats
+    // Virtual Account Codes
     const topBanks = {
-      bca: { name: 'Bank Central Asia (BCA)', prefix: '12208', label: 'BCA Virtual Account' },
-      mandiri: { name: 'Bank Mandiri', prefix: '89508', label: 'Mandiri Multi Payment VA' },
-      bri: { name: 'Bank Rakyat Indonesia (BRI)', prefix: '88810', label: 'BRIVA (BRI Virtual Account)' },
-      bni: { name: 'Bank Negara Indonesia (BNI)', prefix: '88100', label: 'BNI Virtual Account Billing' },
-      bsi: { name: 'Bank Syariah Indonesia (BSI)', prefix: '60808', label: 'BSI Virtual Account Syariah' },
-      cimb: { name: 'Bank CIMB Niaga', prefix: '80590', label: 'CIMB Niaga VA' },
-      btn: { name: 'Bank Tabungan Negara (BTN)', prefix: '99200', label: 'BTN Virtual Account' },
-      permata: { name: 'Bank Permata', prefix: '85280', label: 'Permata VA' },
-      danamon: { name: 'Bank Danamon', prefix: '89100', label: 'Danamon VA' },
-      ocbc: { name: 'Bank OCBC NISP', prefix: '90120', label: 'OCBC NISP Virtual Account' }
+      bca: { name: 'BCA', prefix: '12208' },
+      mandiri: { name: 'Mandiri', prefix: '89508' },
+      bri: { name: 'BRI (BRIVA)', prefix: '88810' },
+      bni: { name: 'BNI', prefix: '88100' },
+      bsi: { name: 'BSI', prefix: '60808' },
+      cimb: { name: 'CIMB Niaga', prefix: '80590' },
+      btn: { name: 'BTN', prefix: '99200' },
+      permata: { name: 'Permata', prefix: '85280' },
+      danamon: { name: 'Danamon', prefix: '89100' },
+      ocbc: { name: 'OCBC NISP', prefix: '90120' }
     };
 
-    // 8 Sanksi Probabilitas (Termasuk 3 Paket Khusus PRO)
+    // 8 Jenis Santet (Harga di atas 100k diberi 3 digit acak unik)
     const curses = [
-      { name: 'Dislokasi Kinetik Kelingking', price: 25000, isPro: false },
-      { name: 'Malfungsi Refleks Bersin', price: 20000, isPro: false },
-      { name: 'Kompensasi Rahang Menguap', price: 22000, isPro: false },
-      { name: 'Spasme Okular Waktu Genting', price: 27000, isPro: false },
-      { name: 'Amnesia Giliran Bicara', price: 30000, isPro: false },
-      { name: 'Fraktur Sandal Becek', price: 45000, isPro: true },
-      { name: 'Drop 1% Pas Scan Kasir', price: 50000, isPro: true },
-      { name: 'Gatal Kuping Tak Kena Titik', price: 40000, isPro: true }
+      { name: 'Dislokasi Kelingking', price: 25000, isPro: false },
+      { name: 'Malfungsi Bersin', price: 20000, isPro: false },
+      { name: 'Rahang Menguap', price: 22000, isPro: false },
+      { name: 'Spasme Okular', price: 27000, isPro: false },
+      { name: 'Amnesia Bicara', price: 30000, isPro: false },
+      { name: 'Fraktur Sandal', price: 125484, isPro: true },
+      { name: 'Drop 1% Scan Kasir', price: 150592, isPro: true },
+      { name: 'Gatal Tak Kena Titik', price: 115871, isPro: true }
     ];
 
-    // Dukcapil Target Registry mapping (Fixed name: FERDINAND ARYA)
-    const dukcapilDB = {
-      '3171012903820001': { name: 'NICODEMUS RUSDIYANTO', weton: 'Rabu Pon (Neptu 14)', gender: 'Laki-Laki', city: 'DKI JAKARTA' },
-      '3171015507850002': { name: 'ASTRI PURNANI', weton: 'Kamis Kliwon (Neptu 16)', gender: 'Perempuan', city: 'TANGERANG KOTA' },
-      '3275031409940003': { name: 'FERDINAND ARYA', weton: 'Jumat Wage (Neptu 10)', gender: 'Laki-Laki', city: 'BEKASI UTARA' },
-      '3578042211980004': { name: 'VITO SATRIA', weton: 'Sabtu Legi (Neptu 14)', gender: 'Laki-Laki', city: 'SURABAYA TIMUR' }
+    // 4 Preset Target Examples
+    const presetRegistry = {
+      '3171012903820001': { name: 'NICODEMUS RUSDIYANTO', dob: '29 Maret 1982', weton: 'Rabu Pon (Neptu 14)', gender: 'Laki-Laki', city: 'DKI JAKARTA' },
+      '3171015507850002': { name: 'ASTRI PURNANI', dob: '15 Juli 1985', weton: 'Kamis Kliwon (Neptu 16)', gender: 'Perempuan', city: 'TANGERANG KOTA' },
+      '3275031409940003': { name: 'FERDINAND ARYA', dob: '14 September 1994', weton: 'Jumat Wage (Neptu 10)', gender: 'Laki-Laki', city: 'BEKASI UTARA' },
+      '3578042211980004': { name: 'VITO SATRIA', dob: '22 November 1998', weton: 'Sabtu Legi (Neptu 14)', gender: 'Laki-Laki', city: 'SURABAYA TIMUR' }
     };
 
-    // Theme Toggle
+    // Random Pool
+    const firstNames = ['BAMBANG', 'EKO', 'DIMAS', 'BAYU', 'HENDRA', 'MAULANA', 'DEWI', 'RATNA', 'TIARA', 'SITI', 'AGUS', 'BAGUS'];
+    const lastNames = ['PRATAMA', 'SANTOSO', 'WIJAYA', 'KUSUMA', 'HIDAYAT', 'SAPUTRA', 'SETIAWAN', 'NURCAHYO', 'ANGGORO', 'UTOMO'];
+    const cities = ['KOTA BANDUNG', 'KOTA SEMARANG', 'KOTA YOGYAKARTA', 'KOTA MEDAN', 'KOTA MALANG', 'KOTA MAKASSAR', 'KOTA DENPASAR'];
+    const wetonDays = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    const wetonPasarans = ['Legi', 'Pahing', 'Pon', 'Wage', 'Kliwon'];
+
+    // Native App Modal Handler
+    function showNativeAlert(title, message, icon = 'info') {
+      document.getElementById('nativeAlertTitle').innerText = title;
+      document.getElementById('nativeAlertMsg').innerText = message;
+      document.getElementById('nativeAlertIcon').innerText = icon;
+      document.getElementById('nativeAlertModal').classList.remove('hidden');
+    }
+
+    function closeNativeAlert() {
+      document.getElementById('nativeAlertModal').classList.add('hidden');
+    }
+
+    // Toggle Theme
     function toggleTheme() {
       const html = document.documentElement;
       const themeIcon = document.getElementById('themeIcon');
@@ -826,7 +873,7 @@
       }
     }
 
-    // Toggle PRO Member Status
+    // Toggle PRO Status
     function toggleProStatus() {
       isPro = !isPro;
       const badge = document.getElementById('txtProBadge');
@@ -835,9 +882,16 @@
       if (isPro) {
         badge.innerText = 'PRO TIER';
         btn.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-500 text-white border-amber-400 shadow-sm';
+        showNativeAlert('Tier Diaktifkan', 'Selamat! Keanggotaan PRO TIER aktif. Seluruh jenis santet eksklusif kini terbuka.', 'workspace_premium');
       } else {
         badge.innerText = 'BASIC';
         btn.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold border transition-all flex items-center gap-1 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border-amber-300 dark:border-amber-600';
+        // uncheck any PRO curses if user downgrades
+        selectedCursesSet.forEach(idx => {
+          if (curses[idx].isPro) selectedCursesSet.delete(idx);
+        });
+        if (selectedCursesSet.size === 0) selectedCursesSet.add(0);
+        refreshCurseCardsUI();
       }
     }
 
@@ -850,11 +904,40 @@
       }
     }
 
-    // Trigger Dukcapil Check with 1.8s realistic animation
+    // Deterministic random target generator
+    function generateTargetFromNik(nik) {
+      let seed = 0;
+      for (let i = 0; i < nik.length; i++) {
+        seed = (seed * 31 + nik.charCodeAt(i)) % 1000000;
+      }
+      const fn = firstNames[seed % firstNames.length];
+      const ln = lastNames[(seed * 7) % lastNames.length];
+      const city = cities[(seed * 13) % cities.length];
+      
+      const day = 1 + (seed % 28);
+      const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      const month = monthNames[(seed * 3) % 12];
+      const year = 1970 + (seed % 35);
+      const dob = `${day} ${month} ${year}`;
+
+      const wDay = wetonDays[seed % 7];
+      const wPas = wetonPasarans[(seed * 5) % 5];
+      const neptu = 9 + (seed % 9);
+
+      return {
+        name: `${fn} ${ln}`,
+        dob: dob,
+        weton: `${wDay} ${wPas} (Neptu ${neptu})`,
+        gender: seed % 2 === 0 ? 'Laki-Laki' : 'Perempuan',
+        city: city
+      };
+    }
+
+    // Dukcapil Check
     function triggerDukcapilCheck() {
       const nik = document.getElementById('inputTargetNik').value;
       if (nik.length !== 16) {
-        alert('NIK harus terdiri dari tepat 16 digit angka!');
+        showNativeAlert('Format NIK Tidak Valid', 'NIK harus terdiri dari tepat 16 digit angka.', 'error');
         return;
       }
 
@@ -871,53 +954,84 @@
         successNotice.classList.remove('hidden');
         detailsCard.classList.remove('opacity-40');
 
-        // Check if NIK is in preset database, or synthesize standard person
-        const data = dukcapilDB[nik] || {
-          name: 'TARGET TERVERIFIKASI #' + nik.slice(-4),
-          weton: 'Senin Pahing (Neptu 13)',
-          gender: 'Laki-Laki',
-          city: 'REPUBLIK INDONESIA'
-        };
+        const data = presetRegistry[nik] || generateTargetFromNik(nik);
 
         document.getElementById('inputTargetName').value = data.name;
+        document.getElementById('inputTargetDob').value = data.dob;
         document.getElementById('inputTargetWeton').value = data.weton;
-        document.getElementById('inputTargetGender').value = data.gender;
         document.getElementById('inputTargetCity').value = data.city;
-      }, 1500);
+        document.getElementById('txtVerifyNotice').innerText = presetRegistry[nik] 
+          ? 'Data Presisi Terverifikasi DUKCAPIL Pusat' 
+          : 'Target Baru Berhasil Terbaca di Ledger Kependudukan';
+      }, 1400);
     }
 
     function validateAndGoStep2() {
       const nik = document.getElementById('inputTargetNik').value;
       if (nik.length !== 16) {
-        alert('Mohon masukkan 16 digit NIK terlebih dahulu!');
+        showNativeAlert('NIK Belum Lengkap', 'Mohon lengkapi 16 digit NIK target terlebih dahulu.', 'warning');
         return;
       }
       goToStep(2);
     }
 
-    // Select Curse Handler
-    function selectCurse(idx) {
+    // MULTI-SELECT SANTET HANDLER
+    function toggleCurseSelection(idx) {
       const item = curses[idx];
       if (item.isPro && !isPro) {
-        alert('Jenis sanksi ini bertanda [PRO]. Klik tombol status di pojok kanan atas untuk mengaktifkan PRO TIER!');
+        showNativeAlert('Khusus Member PRO', 'Jenis santet ini bertanda [PRO]. Aktifkan tombol BASIC di pojok kanan atas untuk membukanya!', 'lock');
         return;
       }
-      selectedCurseIndex = idx;
-      
+
+      if (selectedCursesSet.has(idx)) {
+        // Minimum 1 selected
+        if (selectedCursesSet.size === 1) {
+          showNativeAlert('Pilihan Minimal', 'Anda harus memilih minimal 1 jenis santet.', 'info');
+          return;
+        }
+        selectedCursesSet.delete(idx);
+      } else {
+        selectedCursesSet.add(idx);
+      }
+
+      refreshCurseCardsUI();
+    }
+
+    function refreshCurseCardsUI() {
+      let totalAmount = 0;
+      let selectedNames = [];
+
       for (let i = 0; i < curses.length; i++) {
         const card = document.getElementById(`curseCard${i}`);
-        if (i === idx) {
+        const icon = document.getElementById(`checkIcon${i}`);
+        const isSelected = selectedCursesSet.has(i);
+
+        if (isSelected) {
           card.classList.add('border-2', 'border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/20');
           card.classList.remove('border-slate-200', 'dark:border-slate-700');
+          icon.innerText = 'check_circle';
+          icon.className = 'material-symbols-outlined text-supergreen text-xs font-bold';
+          totalAmount += curses[i].price;
+          selectedNames.push(curses[i].name);
         } else {
           card.classList.remove('border-2', 'border-supergreen', 'bg-emerald-50/50', 'dark:bg-emerald-950/20');
           card.classList.add('border', 'border-slate-200', 'dark:border-slate-700');
+          icon.innerText = 'radio_button_unchecked';
+          icon.className = 'material-symbols-outlined text-slate-300 dark:text-slate-600 text-xs';
         }
       }
-      updateCheckoutDetails();
+
+      // Update Badges & Buttons
+      document.getElementById('badgeSelectedCount').innerText = `${selectedCursesSet.size} Terpilih`;
+      document.getElementById('btnContinueMahar').innerText = `Pilih Pembayaran (Rp${totalAmount.toLocaleString('id-ID')})`;
+
+      // Checkout Card details
+      document.getElementById('txtCheckoutPrice').innerText = 'Rp' + totalAmount.toLocaleString('id-ID');
+      document.getElementById('txtCheckoutCurse').innerText = selectedNames.length === 1 
+        ? selectedNames[0] 
+        : `${selectedNames[0]} (+${selectedNames.length - 1} lainnya)`;
     }
 
-    // Execution Mode
     function setExecMode(mode) {
       execMode = mode;
       const btnInstant = document.getElementById('btnModeInstant');
@@ -930,16 +1044,16 @@
         btnScheduled.className = 'p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
         dateWrap.classList.add('hidden');
         paylaterNotice.classList.add('hidden');
+        document.getElementById('txtCheckoutMode').innerText = 'Mode: Eksekusi Instan';
       } else {
         btnScheduled.className = 'p-1.5 rounded-lg border-2 border-supergreen bg-white dark:bg-slate-900 flex items-center gap-1.5 text-left';
         btnInstant.className = 'p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center gap-1.5 text-left';
         dateWrap.classList.remove('hidden');
         paylaterNotice.classList.remove('hidden');
+        document.getElementById('txtCheckoutMode').innerText = `Mode: Terjadwal (${document.getElementById('inputScheduledDate').value})`;
       }
-      updateCheckoutDetails();
     }
 
-    // Switch Payment Tabs (QRIS, 10 Bank VA, NFC)
     function switchPayTab(tab) {
       activePayTab = tab;
       const tabs = ['qris', 'va', 'nfc'];
@@ -957,7 +1071,6 @@
       if (tab === 'va') updateVaDisplay();
     }
 
-    // Update Virtual Account Number Format based on chosen top 10 bank
     function updateVaDisplay() {
       const selectedBankKey = document.getElementById('selectTopBank').value;
       const bank = topBanks[selectedBankKey];
@@ -972,20 +1085,9 @@
     function copyVaNumber() {
       const num = document.getElementById('txtVaNumber').innerText;
       navigator.clipboard.writeText(num);
-      alert(`Nomor Virtual Account ${num} berhasil disalin ke clipboard!`);
+      showNativeAlert('Tersalin!', `Nomor Virtual Account ${num} berhasil disalin ke clipboard.`, 'content_copy');
     }
 
-    // Checkout Details Text
-    function updateCheckoutDetails() {
-      const curse = curses[selectedCurseIndex];
-      document.getElementById('txtCheckoutCurse').innerText = curse.name;
-      document.getElementById('txtCheckoutPrice').innerText = 'Rp' + curse.price.toLocaleString('id-ID');
-      document.getElementById('txtCheckoutMode').innerText = execMode === 'instant' 
-        ? 'Mode: Eksekusi Instan (Langsung Aktif)' 
-        : `Mode: Terjadwal (${document.getElementById('inputScheduledDate').value})`;
-    }
-
-    // Wizard Navigation
     function goToHome() {
       document.querySelectorAll('main > section').forEach(sec => {
         sec.classList.add('hidden');
@@ -1025,8 +1127,8 @@
       
       const titles = [
         'Verifikasi NIK DUKCAPIL',
-        'Katalog Sanksi Anomali',
-        'Kasir Mahar & Kanal Bank'
+        'Jenis Santet',
+        'Kasir Mahar SantetPay'
       ];
       document.getElementById('stepIndicatorTitle').innerText = titles[step - 1];
 
@@ -1035,12 +1137,11 @@
       document.getElementById('navHistory').className = 'flex flex-col items-center hover:text-slate-600 dark:hover:text-slate-200';
 
       if (step === 3) {
-        updateCheckoutDetails();
+        refreshCurseCardsUI();
         updateVaDisplay();
       }
     }
 
-    // Open History Table Screen
     function openHistoryTable() {
       document.querySelectorAll('main > section').forEach(sec => {
         sec.classList.add('hidden');
@@ -1075,7 +1176,6 @@
       });
     }
 
-    // Payment Settlement: Shows multi-second processing animation, then records into history and returns to Home
     function executeFullPaymentProcess() {
       const modal = document.getElementById('processingModal');
       const progressBar = document.getElementById('processingProgressBar');
@@ -1092,30 +1192,28 @@
 
       setTimeout(() => {
         progressBar.style.width = '100%';
-        stepText.innerText = 'Transmisi berhasil terdistribusi ke semesta!';
+        stepText.innerText = 'Transmisi Santetly berhasil diluncurkan!';
       }, 1800);
 
       setTimeout(() => {
         modal.classList.add('hidden');
 
-        // Add to history
         const targetName = document.getElementById('inputTargetName').value || 'FERDINAND ARYA';
-        const curse = curses[selectedCurseIndex];
+        const selectedNames = Array.from(selectedCursesSet).map(idx => curses[idx].name).join(', ');
         const newCode = 'ST-2026-' + Math.floor(100 + Math.random() * 900);
 
         transmissionHistory.unshift({
           code: newCode,
           target: targetName,
-          curse: curse.name,
+          curse: selectedNames,
           status: execMode === 'instant' ? 'TERKIRIM' : 'TERJADWAL'
         });
 
-        alert(`Transmisi Selesai!\nSanksi [${curse.name}] telah dikirimkan ke target [${targetName}]. Resi tercatat di Riwayat Transaksi.`);
+        showNativeAlert('Transmisi Berhasil!', `Santet [${selectedNames}] telah diluncurkan ke [${targetName}]. Tercatat di Riwayat Transaksi.`, 'check_circle');
         goToHome();
       }, 2500);
     }
 
-    // NFC Modal Handlers
     function showNfcModal() {
       document.getElementById('nfcModal').classList.remove('hidden');
       document.getElementById('txtNfcCardStatus').innerText = 'Mendeteksi Medan Magnet...';
@@ -1130,7 +1228,7 @@
       const status = document.getElementById('txtNfcCardStatus');
       const bal = document.getElementById('txtNfcBalance');
       status.innerText = 'MANDIRI E-MONEY TERDETEKSI!';
-      bal.innerText = 'Rp150.000';
+      bal.innerText = 'Rp350.000';
 
       setTimeout(() => {
         closeNfcModal();
@@ -1138,10 +1236,9 @@
       }, 700);
     }
 
-    // On DOM Ready
     window.addEventListener('DOMContentLoaded', () => {
       goToHome();
-      selectCurse(0);
+      refreshCurseCardsUI();
       updateVaDisplay();
       if (localStorage.getItem('theme') === 'dark') {
         document.documentElement.classList.add('dark');
