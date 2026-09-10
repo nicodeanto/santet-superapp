@@ -2,7 +2,7 @@
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=nicodeanto-santetly&label=Views&color=00AA13&style=flat)
 
-Sebuah studi kasus UI/UX Web Application modern yang mengadaptasi pola interaksi *SuperApp* kontemporer (Gojek, Grab, OVO, Livin') dengan tema transendental-satir. Dirancang khusus dalam arsitektur *single-file* responsif tanpa scrolling vertikal (*single-viewport*), mendukung simulasi sensor perangkat (*NFC Tap*), verifikasi NIK mandiri, multi-select santet, dan integrasi kanal pembayaran nasional.
+Sebuah studi kasus UI/UX Web Application modern yang mengadaptasi pola interaksi *SuperApp* kontemporer dengan tema transendental-satir. Dirancang khusus dalam arsitektur *single-file* responsif tanpa scrolling vertikal (*single-viewport*), mendukung simulasi sensor perangkat (*NFC Tap*), verifikasi NIK mandiri, multi-select santet, dan integrasi kanal pembayaran nasional.
 
 ---
 
